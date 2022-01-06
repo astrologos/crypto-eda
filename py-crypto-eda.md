@@ -100,14 +100,9 @@ datetime.datetime.fromtimestamp(end_unix_timestamp)
 
 
 
-    577020
+    577112
 
-
-
-
-
-
-    datetime.datetime(2022, 1, 6, 9, 22)
+    datetime.datetime(2022, 1, 6, 10, 54)
 
 
 
@@ -161,10 +156,6 @@ klines.dtypes
 ```
 
     Kline data types:
-    
-
-
-
 
     Open Time UTC            uint64
     Open BTC                float32
@@ -193,19 +184,6 @@ klines.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -369,19 +347,6 @@ klines.head()
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -881,26 +846,14 @@ klines.head()
 klines[klines.isna().any(axis=1)].head()
 klines[klines.isna().any(axis=1)].shape
 klines.drop(axis='index', labels=klines[klines.isna().any(axis=1)]['Open Time UTC'].values.tolist(),inplace=True)
-
+klines.head()
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1402,6 +1355,503 @@ klines.drop(axis='index', labels=klines[klines.isna().any(axis=1)]['Open Time UT
 
 
 
+
+
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Open Time UTC</th>
+      <th>Open BTC</th>
+      <th>High BTC</th>
+      <th>Low BTC</th>
+      <th>Close BTC</th>
+      <th>Volume ETH</th>
+      <th>Close Time UTC</th>
+      <th>Volume BTC</th>
+      <th>Number of Trades</th>
+      <th>Taker Buy Volume ETH</th>
+      <th>Taker Buy Volume BTC</th>
+      <th>Difference BTC</th>
+      <th>Percent Change BTC</th>
+      <th>Maker-Taker Volume BTC Ratio</th>
+      <th>Price-Volume BTC Ratio</th>
+      <th>Trade-Volume BTC Ratio</th>
+      <th>Price-Taker Buy Volume BTC Ratio</th>
+      <th>Trade-Taker Buy Volume BTC Ratio</th>
+      <th>DIFF 1 Open BTC</th>
+      <th>DIFF 1 High BTC</th>
+      <th>DIFF 1 Low BTC</th>
+      <th>DIFF 1 Close BTC</th>
+      <th>DIFF 1 Volume ETH</th>
+      <th>DIFF 1 Volume BTC</th>
+      <th>DIFF 1 Number of Trades</th>
+      <th>DIFF 1 Taker Buy Volume ETH</th>
+      <th>DIFF 1 Taker Buy Volume BTC</th>
+      <th>DIFF 1 Difference BTC</th>
+      <th>DIFF 1 Percent Change BTC</th>
+      <th>DIFF 1 Maker-Taker Volume BTC Ratio</th>
+      <th>DIFF 1 Price-Volume BTC Ratio</th>
+      <th>DIFF 1 Trade-Volume BTC Ratio</th>
+      <th>DIFF 1 Price-Taker Buy Volume BTC Ratio</th>
+      <th>DIFF 1 Trade-Taker Buy Volume BTC Ratio</th>
+      <th>DIFF 2 Open BTC</th>
+      <th>DIFF 2 High BTC</th>
+      <th>DIFF 2 Low BTC</th>
+      <th>DIFF 2 Close BTC</th>
+      <th>DIFF 2 Volume ETH</th>
+      <th>DIFF 2 Volume BTC</th>
+      <th>DIFF 2 Number of Trades</th>
+      <th>DIFF 2 Taker Buy Volume ETH</th>
+      <th>DIFF 2 Taker Buy Volume BTC</th>
+      <th>DIFF 2 Difference BTC</th>
+      <th>DIFF 2 Percent Change BTC</th>
+      <th>DIFF 2 Maker-Taker Volume BTC Ratio</th>
+      <th>DIFF 2 Price-Volume BTC Ratio</th>
+      <th>DIFF 2 Trade-Volume BTC Ratio</th>
+      <th>DIFF 2 Price-Taker Buy Volume BTC Ratio</th>
+      <th>DIFF 2 Trade-Taker Buy Volume BTC Ratio</th>
+      <th>DIFF 3 Open BTC</th>
+      <th>DIFF 3 High BTC</th>
+      <th>DIFF 3 Low BTC</th>
+      <th>DIFF 3 Close BTC</th>
+      <th>DIFF 3 Volume ETH</th>
+      <th>DIFF 3 Volume BTC</th>
+      <th>DIFF 3 Number of Trades</th>
+      <th>DIFF 3 Taker Buy Volume ETH</th>
+      <th>DIFF 3 Taker Buy Volume BTC</th>
+      <th>DIFF 3 Difference BTC</th>
+      <th>DIFF 3 Percent Change BTC</th>
+      <th>DIFF 3 Maker-Taker Volume BTC Ratio</th>
+      <th>DIFF 3 Price-Volume BTC Ratio</th>
+      <th>DIFF 3 Trade-Volume BTC Ratio</th>
+      <th>DIFF 3 Price-Taker Buy Volume BTC Ratio</th>
+      <th>DIFF 3 Trade-Taker Buy Volume BTC Ratio</th>
+    </tr>
+    <tr>
+      <th>Open Time UTC</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1606781040000</th>
+      <td>1606781040000</td>
+      <td>0.03137</td>
+      <td>0.03140</td>
+      <td>0.03134</td>
+      <td>0.03137</td>
+      <td>689.13098</td>
+      <td>1606781099999</td>
+      <td>21.61878</td>
+      <td>317.00000</td>
+      <td>462.52200</td>
+      <td>14.50975</td>
+      <td>-0.00000</td>
+      <td>-0.01274</td>
+      <td>0.32884</td>
+      <td>0.00145</td>
+      <td>14.66317</td>
+      <td>0.00216</td>
+      <td>21.84738</td>
+      <td>0.00007</td>
+      <td>0.00003</td>
+      <td>0.00006</td>
+      <td>0.00004</td>
+      <td>28.74600</td>
+      <td>0.91588</td>
+      <td>70.00000</td>
+      <td>31.54901</td>
+      <td>0.99895</td>
+      <td>-0.00003</td>
+      <td>-0.10903</td>
+      <td>-0.02835</td>
+      <td>-0.00022</td>
+      <td>4.26951</td>
+      <td>-0.00044</td>
+      <td>4.56841</td>
+      <td>0.00009</td>
+      <td>0.00007</td>
+      <td>0.00007</td>
+      <td>0.00011</td>
+      <td>29.97299</td>
+      <td>0.96850</td>
+      <td>56.00000</td>
+      <td>115.04001</td>
+      <td>3.62133</td>
+      <td>0.00002</td>
+      <td>0.06046</td>
+      <td>-0.26608</td>
+      <td>-0.00023</td>
+      <td>2.87885</td>
+      <td>-0.00239</td>
+      <td>-12.61906</td>
+      <td>0.00002</td>
+      <td>0.00005</td>
+      <td>0.00007</td>
+      <td>0.00013</td>
+      <td>44.62799</td>
+      <td>1.42051</td>
+      <td>17.00000</td>
+      <td>163.99100</td>
+      <td>5.14881</td>
+      <td>0.00010</td>
+      <td>0.32248</td>
+      <td>-0.39158</td>
+      <td>-0.00036</td>
+      <td>-1.84620</td>
+      <td>-0.00481</td>
+      <td>-41.87644</td>
+    </tr>
+    <tr>
+      <th>1606781100000</th>
+      <td>1606781100000</td>
+      <td>0.03137</td>
+      <td>0.03141</td>
+      <td>0.03137</td>
+      <td>0.03141</td>
+      <td>372.71799</td>
+      <td>1606781159999</td>
+      <td>11.69953</td>
+      <td>225.00000</td>
+      <td>222.20799</td>
+      <td>6.97532</td>
+      <td>0.00004</td>
+      <td>0.13071</td>
+      <td>0.40380</td>
+      <td>0.00268</td>
+      <td>19.23153</td>
+      <td>0.00450</td>
+      <td>32.25660</td>
+      <td>0.00004</td>
+      <td>0.00002</td>
+      <td>0.00003</td>
+      <td>-0.00000</td>
+      <td>311.55899</td>
+      <td>9.77958</td>
+      <td>15.00000</td>
+      <td>178.36200</td>
+      <td>5.59957</td>
+      <td>-0.00004</td>
+      <td>-0.13401</td>
+      <td>0.08144</td>
+      <td>-0.00120</td>
+      <td>-10.84530</td>
+      <td>-0.00135</td>
+      <td>-12.04642</td>
+      <td>0.00011</td>
+      <td>0.00006</td>
+      <td>0.00008</td>
+      <td>0.00004</td>
+      <td>340.30499</td>
+      <td>10.69547</td>
+      <td>85.00000</td>
+      <td>209.91101</td>
+      <td>6.59852</td>
+      <td>-0.00008</td>
+      <td>-0.24304</td>
+      <td>0.05309</td>
+      <td>-0.00141</td>
+      <td>-6.57579</td>
+      <td>-0.00179</td>
+      <td>-7.47802</td>
+      <td>0.00013</td>
+      <td>0.00010</td>
+      <td>0.00010</td>
+      <td>0.00011</td>
+      <td>341.53198</td>
+      <td>10.74808</td>
+      <td>71.00000</td>
+      <td>293.40201</td>
+      <td>9.22089</td>
+      <td>-0.00002</td>
+      <td>-0.07355</td>
+      <td>-0.18464</td>
+      <td>-0.00142</td>
+      <td>-7.96645</td>
+      <td>-0.00375</td>
+      <td>-24.66549</td>
+    </tr>
+    <tr>
+      <th>1606781160000</th>
+      <td>1606781160000</td>
+      <td>0.03140</td>
+      <td>0.03143</td>
+      <td>0.03138</td>
+      <td>0.03139</td>
+      <td>670.04700</td>
+      <td>1606781219999</td>
+      <td>21.04978</td>
+      <td>380.00000</td>
+      <td>149.05800</td>
+      <td>4.68179</td>
+      <td>-0.00002</td>
+      <td>-0.06368</td>
+      <td>0.77758</td>
+      <td>0.00149</td>
+      <td>18.05244</td>
+      <td>0.00671</td>
+      <td>81.16556</td>
+      <td>-0.00001</td>
+      <td>0.00001</td>
+      <td>0.00002</td>
+      <td>0.00004</td>
+      <td>-316.41299</td>
+      <td>-9.91925</td>
+      <td>-92.00000</td>
+      <td>-240.31401</td>
+      <td>-7.53443</td>
+      <td>0.00004</td>
+      <td>0.14345</td>
+      <td>0.07496</td>
+      <td>0.00123</td>
+      <td>4.56836</td>
+      <td>0.00233</td>
+      <td>10.40922</td>
+      <td>0.00003</td>
+      <td>0.00004</td>
+      <td>0.00005</td>
+      <td>0.00004</td>
+      <td>-4.85400</td>
+      <td>-0.13967</td>
+      <td>-77.00000</td>
+      <td>-61.95201</td>
+      <td>-1.93487</td>
+      <td>0.00000</td>
+      <td>0.00944</td>
+      <td>0.15640</td>
+      <td>0.00003</td>
+      <td>-6.27694</td>
+      <td>0.00098</td>
+      <td>-1.63720</td>
+      <td>0.00010</td>
+      <td>0.00007</td>
+      <td>0.00011</td>
+      <td>0.00007</td>
+      <td>23.89200</td>
+      <td>0.77622</td>
+      <td>-7.00000</td>
+      <td>-30.40300</td>
+      <td>-0.93592</td>
+      <td>-0.00003</td>
+      <td>-0.09959</td>
+      <td>0.12805</td>
+      <td>-0.00018</td>
+      <td>-2.00743</td>
+      <td>0.00055</td>
+      <td>2.93121</td>
+    </tr>
+    <tr>
+      <th>1606781220000</th>
+      <td>1606781220000</td>
+      <td>0.03138</td>
+      <td>0.03138</td>
+      <td>0.03132</td>
+      <td>0.03132</td>
+      <td>242.86301</td>
+      <td>1606781279999</td>
+      <td>7.61350</td>
+      <td>177.00000</td>
+      <td>93.79800</td>
+      <td>2.94024</td>
+      <td>-0.00006</td>
+      <td>-0.19118</td>
+      <td>0.61381</td>
+      <td>0.00412</td>
+      <td>23.24816</td>
+      <td>0.01067</td>
+      <td>60.19922</td>
+      <td>0.00004</td>
+      <td>0.00002</td>
+      <td>0.00001</td>
+      <td>-0.00002</td>
+      <td>297.32901</td>
+      <td>9.35025</td>
+      <td>155.00000</td>
+      <td>-73.14999</td>
+      <td>-2.29353</td>
+      <td>-0.00006</td>
+      <td>-0.19439</td>
+      <td>0.37379</td>
+      <td>-0.00119</td>
+      <td>-1.17909</td>
+      <td>0.00221</td>
+      <td>48.90896</td>
+      <td>0.00003</td>
+      <td>0.00003</td>
+      <td>0.00004</td>
+      <td>0.00001</td>
+      <td>-19.08398</td>
+      <td>-0.56900</td>
+      <td>63.00000</td>
+      <td>-313.46399</td>
+      <td>-9.82796</td>
+      <td>-0.00002</td>
+      <td>-0.05094</td>
+      <td>0.44875</td>
+      <td>0.00004</td>
+      <td>3.38927</td>
+      <td>0.00455</td>
+      <td>59.31818</td>
+      <td>0.00007</td>
+      <td>0.00005</td>
+      <td>0.00006</td>
+      <td>0.00001</td>
+      <td>292.47501</td>
+      <td>9.21058</td>
+      <td>78.00000</td>
+      <td>-135.10201</td>
+      <td>-4.22840</td>
+      <td>-0.00006</td>
+      <td>-0.18494</td>
+      <td>0.53018</td>
+      <td>-0.00115</td>
+      <td>-7.45603</td>
+      <td>0.00319</td>
+      <td>47.27176</td>
+    </tr>
+    <tr>
+      <th>1606781280000</th>
+      <td>1606781280000</td>
+      <td>0.03132</td>
+      <td>0.03134</td>
+      <td>0.03132</td>
+      <td>0.03134</td>
+      <td>120.73700</td>
+      <td>1606781339999</td>
+      <td>3.78288</td>
+      <td>106.00000</td>
+      <td>59.62500</td>
+      <td>1.86821</td>
+      <td>0.00002</td>
+      <td>0.06386</td>
+      <td>0.50614</td>
+      <td>0.00828</td>
+      <td>28.02096</td>
+      <td>0.01677</td>
+      <td>56.73886</td>
+      <td>-0.00002</td>
+      <td>-0.00005</td>
+      <td>-0.00006</td>
+      <td>-0.00006</td>
+      <td>-427.18399</td>
+      <td>-13.43628</td>
+      <td>-203.00000</td>
+      <td>-55.26000</td>
+      <td>-1.74155</td>
+      <td>-0.00004</td>
+      <td>-0.12751</td>
+      <td>-0.16377</td>
+      <td>0.00263</td>
+      <td>5.19572</td>
+      <td>0.00397</td>
+      <td>-20.96634</td>
+      <td>0.00002</td>
+      <td>-0.00003</td>
+      <td>-0.00004</td>
+      <td>-0.00008</td>
+      <td>-129.85498</td>
+      <td>-4.08603</td>
+      <td>-48.00000</td>
+      <td>-128.41000</td>
+      <td>-4.03508</td>
+      <td>-0.00010</td>
+      <td>-0.32190</td>
+      <td>0.21002</td>
+      <td>0.00144</td>
+      <td>4.01663</td>
+      <td>0.00618</td>
+      <td>27.94262</td>
+      <td>0.00001</td>
+      <td>-0.00001</td>
+      <td>-0.00002</td>
+      <td>-0.00005</td>
+      <td>-446.26797</td>
+      <td>-14.00528</td>
+      <td>-140.00000</td>
+      <td>-368.72400</td>
+      <td>-11.56951</td>
+      <td>-0.00006</td>
+      <td>-0.17844</td>
+      <td>0.28498</td>
+      <td>0.00267</td>
+      <td>8.58499</td>
+      <td>0.00851</td>
+      <td>38.35184</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
 ```python
 # Create df for price data only
 price_df = df(klines['Open ' + quote_asset])
@@ -1420,19 +1870,7 @@ order1_residual = price-order1_prediction
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1476,90 +1914,27 @@ order1_residual = price-order1_prediction
 
 # Graph true price vs 1st order approximation
 plt.figure(figsize=(20,4));
-plt.plot(time_idx, price)
-plt.plot(time_idx, order1_prediction)
-plt.title('Price History (USD) ')
-plt.xlabel('UTC Timestamp (s)')
-plt.ylabel('Price ($USD)')
+plt.plot(time_idx, price);
+plt.plot(time_idx, order1_prediction);
+plt.title('Price History (USD) ');
+plt.xlabel('UTC Timestamp (s)');
+plt.ylabel('Price ($USD)');
 
 # Graph 1st order residual 
-plt.figure(figsize=(20,4))
-plt.plot(time_idx, order1_residual)
-plt.title('')
+plt.figure(figsize=(20,4));
+plt.plot(time_idx, order1_residual);
+plt.title('');
 ```
 
 
-
-
-    <Figure size 1440x288 with 0 Axes>
-
-
-
-
-
-
-    [<matplotlib.lines.Line2D at 0x20af1601dc0>]
-
-
-
-
-
-
-    [<matplotlib.lines.Line2D at 0x20af161d160>]
-
-
-
-
-
-
-    Text(0.5, 1.0, 'Price History (USD) ')
-
-
-
-
-
-
-    Text(0.5, 0, 'UTC Timestamp (s)')
-
-
-
-
-
-
-    Text(0, 0.5, 'Price ($USD)')
-
-
-
-
-
-
-    <Figure size 1440x288 with 0 Axes>
-
-
-
-
-
-
-    [<matplotlib.lines.Line2D at 0x20af29299d0>]
-
-
-
-
-
-
-    Text(0.5, 1.0, '')
-
-
-
-
     
-![png](./resources/output_12_9.png)
+![png](./resources/output_12_0.png)
     
 
 
 
     
-![png](./resources/output.png)
+![png](./resources/output_12_1.png)
     
 
 
@@ -1620,19 +1995,7 @@ fft_data
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1645,63 +2008,63 @@ fft_data
   <tbody>
     <tr>
       <th>0</th>
-      <td>1382.18137</td>
+      <td>1382.55169</td>
       <td>0.01747</td>
-      <td>400.59444</td>
+      <td>400.65833</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>1550.17458</td>
-      <td>0.03495</td>
-      <td>200.29722</td>
+      <td>1549.97586</td>
+      <td>0.03494</td>
+      <td>200.32917</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>1205.60322</td>
-      <td>0.05242</td>
-      <td>133.53148</td>
+      <td>1205.05978</td>
+      <td>0.05241</td>
+      <td>133.55278</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>1778.98307</td>
-      <td>0.06990</td>
-      <td>100.14861</td>
+      <td>1779.62092</td>
+      <td>0.06988</td>
+      <td>100.16458</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>275.45627</td>
-      <td>0.08737</td>
-      <td>80.11889</td>
+      <td>275.66889</td>
+      <td>0.08736</td>
+      <td>80.13167</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>179.75720</td>
-      <td>0.10484</td>
-      <td>66.76574</td>
+      <td>180.16369</td>
+      <td>0.10483</td>
+      <td>66.77639</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>546.25039</td>
-      <td>0.12232</td>
-      <td>57.22778</td>
+      <td>545.74066</td>
+      <td>0.12230</td>
+      <td>57.23690</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>339.33163</td>
-      <td>0.13979</td>
-      <td>50.07431</td>
+      <td>340.42885</td>
+      <td>0.13977</td>
+      <td>50.08229</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>277.48344</td>
-      <td>0.15727</td>
-      <td>44.51049</td>
+      <td>278.31866</td>
+      <td>0.15724</td>
+      <td>44.51759</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>347.98698</td>
-      <td>0.17474</td>
-      <td>40.05944</td>
+      <td>348.44093</td>
+      <td>0.17471</td>
+      <td>40.06583</td>
     </tr>
   </tbody>
 </table>
@@ -1758,7 +2121,7 @@ plt.xlabel('Lag (minutes)');
 
 
 ```python
-# Drop time columns as DF in indexed by UTC timestamp
+# Drop time columns as DF is indexed by UTC timestamp
 complete_data = klines.drop(['Open Time UTC','Close Time UTC'],axis='columns')
 
 # add lagged data to complete_data
@@ -1782,19 +2145,7 @@ complete_data.shape
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2532,43 +2883,37 @@ complete_data.shape
 
 
 
-    (576853, 100)
+    (576945, 100)
 
 
 
 
 ```python
 # Plot correlation between pairs except for lag
-# pairplot = sb.pairplot(complete_data[[col for col in complete_data.columns if 'LAG' not in col]].sample(n=1600, axis='index'), diag_kind='kde', kind='scatter',height=2, corner=True,plot_kws=dict(marker='+',linewidth=1))
+pairplot = sb.pairplot(complete_data[[col for col in complete_data.columns if 'LAG' not in col]].sample(n=1600, axis='index'), diag_kind='kde', kind='scatter',height=2, corner=True,plot_kws=dict(marker='+',linewidth=1))
 
-# pairplot.savefig('pairplot_' + trade_pair + '.png',transparent=False)
+pairplot.savefig('pairplot_' + trade_pair + '.png',transparent=False)
 ```
+
+
+    
+![png](./resources/output_20_0.png)
+    
+
 
 
 ```python
 # Collect pairwise correlation into dataframe
 pairwise = pg.pairwise_corr(complete_data.sample(16000), method='spearman', # use spearman correlation to look for monotonically varying pairs
     alternative='two-sided',padjust='bonf').sort_values(by='r',ascending=False)
-pairwise
+pairwise.head()
 ```
 
 
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2588,20 +2933,6 @@ pairwise
   </thead>
   <tbody>
     <tr>
-      <th>100</th>
-      <td>High BTC</td>
-      <td>Close BTC</td>
-      <td>spearman</td>
-      <td>two-sided</td>
-      <td>16000</td>
-      <td>0.99999</td>
-      <td>[1.0, 1.0]</td>
-      <td>0.00000</td>
-      <td>0.00000</td>
-      <td>bonf</td>
-      <td>1.00000</td>
-    </tr>
-    <tr>
       <th>197</th>
       <td>Low BTC</td>
       <td>Close BTC</td>
@@ -2619,6 +2950,20 @@ pairwise
       <th>0</th>
       <td>Open BTC</td>
       <td>High BTC</td>
+      <td>spearman</td>
+      <td>two-sided</td>
+      <td>16000</td>
+      <td>0.99999</td>
+      <td>[1.0, 1.0]</td>
+      <td>0.00000</td>
+      <td>0.00000</td>
+      <td>bonf</td>
+      <td>1.00000</td>
+    </tr>
+    <tr>
+      <th>100</th>
+      <td>High BTC</td>
+      <td>Close BTC</td>
       <td>spearman</td>
       <td>two-sided</td>
       <td>16000</td>
@@ -2657,93 +3002,8 @@ pairwise
       <td>bonf</td>
       <td>1.00000</td>
     </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>4315</th>
-      <td>DIFF 3 Trade-Taker Buy Volume BTC Ratio</td>
-      <td>LAG 3 Maker-Taker Volume BTC Ratio</td>
-      <td>spearman</td>
-      <td>two-sided</td>
-      <td>16000</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>bonf</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4316</th>
-      <td>DIFF 3 Trade-Taker Buy Volume BTC Ratio</td>
-      <td>LAG 3 Price-Volume BTC Ratio</td>
-      <td>spearman</td>
-      <td>two-sided</td>
-      <td>16000</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>bonf</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4317</th>
-      <td>DIFF 3 Trade-Taker Buy Volume BTC Ratio</td>
-      <td>LAG 3 Trade-Volume BTC Ratio</td>
-      <td>spearman</td>
-      <td>two-sided</td>
-      <td>16000</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>bonf</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4318</th>
-      <td>DIFF 3 Trade-Taker Buy Volume BTC Ratio</td>
-      <td>LAG 3 Price-Taker Buy Volume BTC Ratio</td>
-      <td>spearman</td>
-      <td>two-sided</td>
-      <td>16000</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>bonf</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>4319</th>
-      <td>DIFF 3 Trade-Taker Buy Volume BTC Ratio</td>
-      <td>LAG 3 Trade-Taker Buy Volume BTC Ratio</td>
-      <td>spearman</td>
-      <td>two-sided</td>
-      <td>16000</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>bonf</td>
-      <td>NaN</td>
-    </tr>
   </tbody>
 </table>
-<p>4950 rows × 11 columns</p>
 </div>
 
 
@@ -2775,12 +3035,14 @@ ax.set_xlim([-1,1]);
 
 
 ```python
-# # Groupby each variable and sort/filter to find pairs with |r| > 0.1
-# corr_summary = corr_data.groupby(by='Y')
-# for x in corr_summary.groups:
-#     if ('Percent Change ' + quote_asset in corr_summary.get_group(x).index):
-#         corr_summary.get_group(x).sort_values(by='r',ascending=False)[np.abs(corr_summary.get_group(x)['r'])>0.10]
+# Groupby each variable and sort/filter to find pairs with |r| > 0.1
+corr_summary = corr_data.groupby(by='Y')
+for x in corr_summary.groups:
+    if ('Percent Change ' + quote_asset in corr_summary.get_group(x).index):
+        corr_summary.get_group(x).sort_values(by='r',ascending=False)[np.abs(corr_summary.get_group(x)['r'])>0.10]
 ```
+
+*suppressed*
 
 
 ```python
@@ -2796,19 +3058,6 @@ df([entry[1] for entry in df(complete_data.corr()['Percent Change ' + quote_asse
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2819,7 +3068,7 @@ df([entry[1] for entry in df(complete_data.corr()['Percent Change ' + quote_asse
   <tbody>
     <tr>
       <th>Taker Buy Volume ETH</th>
-      <td>-0.22231</td>
+      <td>-0.22232</td>
     </tr>
   </tbody>
 </table>
@@ -2831,19 +3080,7 @@ df([entry[1] for entry in df(complete_data.corr()['Percent Change ' + quote_asse
 
 
 <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
 
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -2877,50 +3114,7 @@ x_corr_vol
 
 
 
-
-<style type="text/css">
-#T_53c79_row0_col0 {
-  background-color: #3b4cc0;
-  color: #f1f1f1;
-}
-#T_53c79_row0_col1 {
-  background-color: #bd1f2d;
-  color: #f1f1f1;
-}
-#T_53c79_row0_col2, #T_53c79_row0_col10, #T_53c79_row5_col0, #T_53c79_row5_col1, #T_53c79_row5_col2, #T_53c79_row5_col4, #T_53c79_row5_col10, #T_53c79_row5_col15, #T_53c79_row10_col4, #T_53c79_row10_col9, #T_53c79_row10_col10, #T_53c79_row10_col19, #T_53c79_row15_col2, #T_53c79_row15_col9, #T_53c79_row15_col10, #T_53c79_row15_col19 {
-  background-color: #ba162b;
-  color: #f1f1f1;
-}
-#T_53c79_row0_col3, #T_53c79_row0_col15, #T_53c79_row0_col16, #T_53c79_row1_col0, #T_53c79_row1_col1, #T_53c79_row1_col2, #T_53c79_row1_col3, #T_53c79_row1_col4, #T_53c79_row1_col7, #T_53c79_row1_col9, #T_53c79_row1_col10, #T_53c79_row1_col11, #T_53c79_row1_col13, #T_53c79_row1_col14, #T_53c79_row1_col16, #T_53c79_row1_col17, #T_53c79_row1_col18, #T_53c79_row1_col19, #T_53c79_row2_col0, #T_53c79_row2_col1, #T_53c79_row2_col2, #T_53c79_row2_col3, #T_53c79_row2_col4, #T_53c79_row2_col7, #T_53c79_row2_col9, #T_53c79_row2_col10, #T_53c79_row2_col11, #T_53c79_row2_col13, #T_53c79_row2_col16, #T_53c79_row2_col17, #T_53c79_row2_col18, #T_53c79_row2_col19, #T_53c79_row5_col5, #T_53c79_row5_col9, #T_53c79_row5_col11, #T_53c79_row5_col12, #T_53c79_row5_col14, #T_53c79_row5_col17, #T_53c79_row6_col0, #T_53c79_row6_col1, #T_53c79_row6_col2, #T_53c79_row6_col4, #T_53c79_row6_col6, #T_53c79_row6_col8, #T_53c79_row6_col9, #T_53c79_row6_col10, #T_53c79_row6_col12, #T_53c79_row6_col14, #T_53c79_row6_col15, #T_53c79_row6_col16, #T_53c79_row6_col17, #T_53c79_row6_col18, #T_53c79_row6_col19, #T_53c79_row7_col0, #T_53c79_row7_col1, #T_53c79_row7_col2, #T_53c79_row7_col4, #T_53c79_row7_col6, #T_53c79_row7_col8, #T_53c79_row7_col9, #T_53c79_row7_col10, #T_53c79_row7_col12, #T_53c79_row7_col14, #T_53c79_row7_col15, #T_53c79_row7_col16, #T_53c79_row7_col17, #T_53c79_row7_col18, #T_53c79_row7_col19, #T_53c79_row10_col3, #T_53c79_row10_col6, #T_53c79_row10_col11, #T_53c79_row10_col16, #T_53c79_row10_col18, #T_53c79_row11_col0, #T_53c79_row11_col1, #T_53c79_row11_col3, #T_53c79_row11_col5, #T_53c79_row11_col6, #T_53c79_row11_col8, #T_53c79_row11_col10, #T_53c79_row11_col11, #T_53c79_row11_col14, #T_53c79_row11_col15, #T_53c79_row11_col16, #T_53c79_row11_col17, #T_53c79_row11_col18, #T_53c79_row11_col19, #T_53c79_row12_col0, #T_53c79_row12_col1, #T_53c79_row12_col3, #T_53c79_row12_col5, #T_53c79_row12_col6, #T_53c79_row12_col8, #T_53c79_row12_col10, #T_53c79_row12_col11, #T_53c79_row12_col14, #T_53c79_row12_col15, #T_53c79_row12_col16, #T_53c79_row12_col17, #T_53c79_row12_col18, #T_53c79_row15_col3, #T_53c79_row15_col5, #T_53c79_row15_col8, #T_53c79_row15_col17, #T_53c79_row16_col0, #T_53c79_row16_col3, #T_53c79_row16_col6, #T_53c79_row16_col9, #T_53c79_row16_col10, #T_53c79_row16_col13, #T_53c79_row16_col14, #T_53c79_row16_col15, #T_53c79_row16_col16, #T_53c79_row16_col17, #T_53c79_row16_col18, #T_53c79_row16_col19, #T_53c79_row17_col0, #T_53c79_row17_col3, #T_53c79_row17_col6, #T_53c79_row17_col9, #T_53c79_row17_col10, #T_53c79_row17_col13, #T_53c79_row17_col14, #T_53c79_row17_col15, #T_53c79_row17_col16, #T_53c79_row17_col17, #T_53c79_row17_col18 {
-  background-color: #b70d28;
-  color: #f1f1f1;
-}
-#T_53c79_row0_col4, #T_53c79_row0_col6, #T_53c79_row0_col7, #T_53c79_row0_col9, #T_53c79_row0_col17, #T_53c79_row5_col3, #T_53c79_row5_col8, #T_53c79_row10_col7, #T_53c79_row10_col8, #T_53c79_row15_col6 {
-  background-color: #b40426;
-  color: #f1f1f1;
-}
-#T_53c79_row0_col5, #T_53c79_row0_col11, #T_53c79_row1_col5, #T_53c79_row1_col6, #T_53c79_row1_col8, #T_53c79_row1_col12, #T_53c79_row2_col5, #T_53c79_row2_col6, #T_53c79_row2_col8, #T_53c79_row2_col12, #T_53c79_row2_col14, #T_53c79_row5_col7, #T_53c79_row5_col19, #T_53c79_row6_col5, #T_53c79_row6_col7, #T_53c79_row6_col11, #T_53c79_row6_col13, #T_53c79_row7_col5, #T_53c79_row7_col7, #T_53c79_row7_col11, #T_53c79_row7_col13, #T_53c79_row10_col14, #T_53c79_row10_col15, #T_53c79_row11_col4, #T_53c79_row11_col7, #T_53c79_row11_col12, #T_53c79_row11_col13, #T_53c79_row12_col4, #T_53c79_row12_col7, #T_53c79_row12_col12, #T_53c79_row12_col13, #T_53c79_row12_col19, #T_53c79_row15_col1, #T_53c79_row15_col4, #T_53c79_row15_col13, #T_53c79_row15_col14, #T_53c79_row15_col15, #T_53c79_row15_col18, #T_53c79_row16_col4, #T_53c79_row16_col5, #T_53c79_row16_col7, #T_53c79_row16_col11, #T_53c79_row16_col12, #T_53c79_row17_col4, #T_53c79_row17_col5, #T_53c79_row17_col7, #T_53c79_row17_col11, #T_53c79_row17_col12, #T_53c79_row17_col19 {
-  background-color: #b8122a;
-  color: #f1f1f1;
-}
-#T_53c79_row0_col8, #T_53c79_row0_col12, #T_53c79_row0_col13, #T_53c79_row0_col14, #T_53c79_row0_col18, #T_53c79_row0_col19, #T_53c79_row1_col15, #T_53c79_row2_col15, #T_53c79_row5_col6, #T_53c79_row5_col13, #T_53c79_row5_col16, #T_53c79_row5_col18, #T_53c79_row6_col3, #T_53c79_row7_col3, #T_53c79_row10_col2, #T_53c79_row10_col5, #T_53c79_row10_col12, #T_53c79_row10_col13, #T_53c79_row10_col17, #T_53c79_row11_col2, #T_53c79_row11_col9, #T_53c79_row12_col2, #T_53c79_row12_col9, #T_53c79_row15_col7, #T_53c79_row15_col11, #T_53c79_row15_col12, #T_53c79_row15_col16, #T_53c79_row16_col1, #T_53c79_row16_col2, #T_53c79_row16_col8, #T_53c79_row17_col1, #T_53c79_row17_col2, #T_53c79_row17_col8 {
-  background-color: #b50927;
-  color: #f1f1f1;
-}
-#T_53c79_row3_col0, #T_53c79_row3_col1, #T_53c79_row3_col2, #T_53c79_row3_col3, #T_53c79_row3_col4, #T_53c79_row3_col5, #T_53c79_row3_col6, #T_53c79_row3_col7, #T_53c79_row3_col8, #T_53c79_row3_col9, #T_53c79_row3_col10, #T_53c79_row3_col11, #T_53c79_row3_col12, #T_53c79_row3_col13, #T_53c79_row3_col14, #T_53c79_row3_col15, #T_53c79_row3_col16, #T_53c79_row3_col17, #T_53c79_row3_col18, #T_53c79_row3_col19, #T_53c79_row4_col0, #T_53c79_row4_col1, #T_53c79_row4_col2, #T_53c79_row4_col3, #T_53c79_row4_col4, #T_53c79_row4_col5, #T_53c79_row4_col6, #T_53c79_row4_col7, #T_53c79_row4_col8, #T_53c79_row4_col9, #T_53c79_row4_col10, #T_53c79_row4_col11, #T_53c79_row4_col12, #T_53c79_row4_col13, #T_53c79_row4_col14, #T_53c79_row4_col15, #T_53c79_row4_col16, #T_53c79_row4_col17, #T_53c79_row4_col18, #T_53c79_row4_col19, #T_53c79_row8_col0, #T_53c79_row8_col1, #T_53c79_row8_col2, #T_53c79_row8_col3, #T_53c79_row8_col4, #T_53c79_row8_col5, #T_53c79_row8_col6, #T_53c79_row8_col7, #T_53c79_row8_col8, #T_53c79_row8_col9, #T_53c79_row8_col10, #T_53c79_row8_col11, #T_53c79_row8_col12, #T_53c79_row8_col13, #T_53c79_row8_col14, #T_53c79_row8_col15, #T_53c79_row8_col16, #T_53c79_row8_col17, #T_53c79_row8_col18, #T_53c79_row8_col19, #T_53c79_row9_col0, #T_53c79_row9_col1, #T_53c79_row9_col2, #T_53c79_row9_col3, #T_53c79_row9_col4, #T_53c79_row9_col5, #T_53c79_row9_col6, #T_53c79_row9_col7, #T_53c79_row9_col8, #T_53c79_row9_col9, #T_53c79_row9_col10, #T_53c79_row9_col11, #T_53c79_row9_col12, #T_53c79_row9_col13, #T_53c79_row9_col14, #T_53c79_row9_col15, #T_53c79_row9_col16, #T_53c79_row9_col17, #T_53c79_row9_col18, #T_53c79_row9_col19, #T_53c79_row13_col0, #T_53c79_row13_col1, #T_53c79_row13_col2, #T_53c79_row13_col3, #T_53c79_row13_col4, #T_53c79_row13_col5, #T_53c79_row13_col6, #T_53c79_row13_col7, #T_53c79_row13_col8, #T_53c79_row13_col9, #T_53c79_row13_col10, #T_53c79_row13_col11, #T_53c79_row13_col12, #T_53c79_row13_col13, #T_53c79_row13_col14, #T_53c79_row13_col15, #T_53c79_row13_col16, #T_53c79_row13_col17, #T_53c79_row13_col18, #T_53c79_row13_col19, #T_53c79_row14_col0, #T_53c79_row14_col1, #T_53c79_row14_col2, #T_53c79_row14_col3, #T_53c79_row14_col4, #T_53c79_row14_col5, #T_53c79_row14_col6, #T_53c79_row14_col7, #T_53c79_row14_col8, #T_53c79_row14_col9, #T_53c79_row14_col10, #T_53c79_row14_col11, #T_53c79_row14_col12, #T_53c79_row14_col13, #T_53c79_row14_col14, #T_53c79_row14_col15, #T_53c79_row14_col16, #T_53c79_row14_col17, #T_53c79_row14_col18, #T_53c79_row14_col19, #T_53c79_row18_col0, #T_53c79_row18_col1, #T_53c79_row18_col2, #T_53c79_row18_col3, #T_53c79_row18_col4, #T_53c79_row18_col5, #T_53c79_row18_col6, #T_53c79_row18_col7, #T_53c79_row18_col8, #T_53c79_row18_col9, #T_53c79_row18_col10, #T_53c79_row18_col11, #T_53c79_row18_col12, #T_53c79_row18_col13, #T_53c79_row18_col14, #T_53c79_row18_col15, #T_53c79_row18_col16, #T_53c79_row18_col17, #T_53c79_row18_col18, #T_53c79_row18_col19, #T_53c79_row19_col0, #T_53c79_row19_col1, #T_53c79_row19_col2, #T_53c79_row19_col3, #T_53c79_row19_col4, #T_53c79_row19_col5, #T_53c79_row19_col6, #T_53c79_row19_col7, #T_53c79_row19_col8, #T_53c79_row19_col9, #T_53c79_row19_col10, #T_53c79_row19_col11, #T_53c79_row19_col12, #T_53c79_row19_col13, #T_53c79_row19_col14, #T_53c79_row19_col15, #T_53c79_row19_col16, #T_53c79_row19_col17, #T_53c79_row19_col18, #T_53c79_row19_col19 {
-  background-color: #000000;
-  color: #f1f1f1;
-}
-#T_53c79_row10_col0, #T_53c79_row10_col1 {
-  background-color: #bb1b2c;
-  color: #f1f1f1;
-}
-#T_53c79_row15_col0 {
-  background-color: #be242e;
-  color: #f1f1f1;
-}
-</style>
-<table id="T_53c79_">
+<table id="T_57c7e_">
   <thead>
     <tr>
       <th class="blank level0" >&nbsp;</th>
@@ -2948,464 +3142,464 @@ x_corr_vol
   </thead>
   <tbody>
     <tr>
-      <th id="T_53c79_level0_row0" class="row_heading level0 row0" >Maker-Taker Volume BTC Ratio</th>
-      <td id="T_53c79_row0_col0" class="data row0 col0" >-27.0</td>
-      <td id="T_53c79_row0_col1" class="data row0 col1" >-0.4</td>
-      <td id="T_53c79_row0_col2" class="data row0 col2" >-0.2</td>
-      <td id="T_53c79_row0_col3" class="data row0 col3" >0.0</td>
-      <td id="T_53c79_row0_col4" class="data row0 col4" >0.3</td>
-      <td id="T_53c79_row0_col5" class="data row0 col5" >-0.1</td>
-      <td id="T_53c79_row0_col6" class="data row0 col6" >0.2</td>
-      <td id="T_53c79_row0_col7" class="data row0 col7" >0.2</td>
-      <td id="T_53c79_row0_col8" class="data row0 col8" >0.1</td>
-      <td id="T_53c79_row0_col9" class="data row0 col9" >0.2</td>
-      <td id="T_53c79_row0_col10" class="data row0 col10" >-0.2</td>
-      <td id="T_53c79_row0_col11" class="data row0 col11" >-0.1</td>
-      <td id="T_53c79_row0_col12" class="data row0 col12" >0.1</td>
-      <td id="T_53c79_row0_col13" class="data row0 col13" >0.1</td>
-      <td id="T_53c79_row0_col14" class="data row0 col14" >0.1</td>
-      <td id="T_53c79_row0_col15" class="data row0 col15" >-0.0</td>
-      <td id="T_53c79_row0_col16" class="data row0 col16" >-0.0</td>
-      <td id="T_53c79_row0_col17" class="data row0 col17" >0.2</td>
-      <td id="T_53c79_row0_col18" class="data row0 col18" >0.1</td>
-      <td id="T_53c79_row0_col19" class="data row0 col19" >0.1</td>
+      <th id="T_57c7e_level0_row0" class="row_heading level0 row0" >Maker-Taker Volume BTC Ratio</th>
+      <td id="T_57c7e_row0_col0" class="data row0 col0" >-27.0</td>
+      <td id="T_57c7e_row0_col1" class="data row0 col1" >-0.4</td>
+      <td id="T_57c7e_row0_col2" class="data row0 col2" >-0.2</td>
+      <td id="T_57c7e_row0_col3" class="data row0 col3" >0.0</td>
+      <td id="T_57c7e_row0_col4" class="data row0 col4" >0.3</td>
+      <td id="T_57c7e_row0_col5" class="data row0 col5" >-0.1</td>
+      <td id="T_57c7e_row0_col6" class="data row0 col6" >0.2</td>
+      <td id="T_57c7e_row0_col7" class="data row0 col7" >0.2</td>
+      <td id="T_57c7e_row0_col8" class="data row0 col8" >0.1</td>
+      <td id="T_57c7e_row0_col9" class="data row0 col9" >0.2</td>
+      <td id="T_57c7e_row0_col10" class="data row0 col10" >-0.2</td>
+      <td id="T_57c7e_row0_col11" class="data row0 col11" >-0.1</td>
+      <td id="T_57c7e_row0_col12" class="data row0 col12" >0.1</td>
+      <td id="T_57c7e_row0_col13" class="data row0 col13" >0.1</td>
+      <td id="T_57c7e_row0_col14" class="data row0 col14" >0.1</td>
+      <td id="T_57c7e_row0_col15" class="data row0 col15" >-0.0</td>
+      <td id="T_57c7e_row0_col16" class="data row0 col16" >-0.0</td>
+      <td id="T_57c7e_row0_col17" class="data row0 col17" >0.2</td>
+      <td id="T_57c7e_row0_col18" class="data row0 col18" >0.1</td>
+      <td id="T_57c7e_row0_col19" class="data row0 col19" >0.1</td>
     </tr>
     <tr>
-      <th id="T_53c79_level0_row1" class="row_heading level0 row1" >Price-Volume BTC Ratio</th>
-      <td id="T_53c79_row1_col0" class="data row1 col0" >-0.0</td>
-      <td id="T_53c79_row1_col1" class="data row1 col1" >-0.0</td>
-      <td id="T_53c79_row1_col2" class="data row1 col2" >0.0</td>
-      <td id="T_53c79_row1_col3" class="data row1 col3" >0.0</td>
-      <td id="T_53c79_row1_col4" class="data row1 col4" >-0.0</td>
-      <td id="T_53c79_row1_col5" class="data row1 col5" >-0.1</td>
-      <td id="T_53c79_row1_col6" class="data row1 col6" >-0.1</td>
-      <td id="T_53c79_row1_col7" class="data row1 col7" >0.0</td>
-      <td id="T_53c79_row1_col8" class="data row1 col8" >-0.1</td>
-      <td id="T_53c79_row1_col9" class="data row1 col9" >0.0</td>
-      <td id="T_53c79_row1_col10" class="data row1 col10" >0.0</td>
-      <td id="T_53c79_row1_col11" class="data row1 col11" >-0.0</td>
-      <td id="T_53c79_row1_col12" class="data row1 col12" >-0.1</td>
-      <td id="T_53c79_row1_col13" class="data row1 col13" >-0.0</td>
-      <td id="T_53c79_row1_col14" class="data row1 col14" >-0.0</td>
-      <td id="T_53c79_row1_col15" class="data row1 col15" >0.1</td>
-      <td id="T_53c79_row1_col16" class="data row1 col16" >0.1</td>
-      <td id="T_53c79_row1_col17" class="data row1 col17" >-0.0</td>
-      <td id="T_53c79_row1_col18" class="data row1 col18" >0.0</td>
-      <td id="T_53c79_row1_col19" class="data row1 col19" >-0.0</td>
+      <th id="T_57c7e_level0_row1" class="row_heading level0 row1" >Price-Volume BTC Ratio</th>
+      <td id="T_57c7e_row1_col0" class="data row1 col0" >-0.0</td>
+      <td id="T_57c7e_row1_col1" class="data row1 col1" >-0.0</td>
+      <td id="T_57c7e_row1_col2" class="data row1 col2" >0.0</td>
+      <td id="T_57c7e_row1_col3" class="data row1 col3" >0.0</td>
+      <td id="T_57c7e_row1_col4" class="data row1 col4" >-0.0</td>
+      <td id="T_57c7e_row1_col5" class="data row1 col5" >-0.1</td>
+      <td id="T_57c7e_row1_col6" class="data row1 col6" >-0.1</td>
+      <td id="T_57c7e_row1_col7" class="data row1 col7" >0.0</td>
+      <td id="T_57c7e_row1_col8" class="data row1 col8" >-0.1</td>
+      <td id="T_57c7e_row1_col9" class="data row1 col9" >0.0</td>
+      <td id="T_57c7e_row1_col10" class="data row1 col10" >0.0</td>
+      <td id="T_57c7e_row1_col11" class="data row1 col11" >-0.0</td>
+      <td id="T_57c7e_row1_col12" class="data row1 col12" >-0.1</td>
+      <td id="T_57c7e_row1_col13" class="data row1 col13" >-0.0</td>
+      <td id="T_57c7e_row1_col14" class="data row1 col14" >-0.0</td>
+      <td id="T_57c7e_row1_col15" class="data row1 col15" >0.1</td>
+      <td id="T_57c7e_row1_col16" class="data row1 col16" >0.1</td>
+      <td id="T_57c7e_row1_col17" class="data row1 col17" >-0.0</td>
+      <td id="T_57c7e_row1_col18" class="data row1 col18" >0.0</td>
+      <td id="T_57c7e_row1_col19" class="data row1 col19" >-0.0</td>
     </tr>
     <tr>
-      <th id="T_53c79_level0_row2" class="row_heading level0 row2" >Trade-Volume BTC Ratio</th>
-      <td id="T_53c79_row2_col0" class="data row2 col0" >0.0</td>
-      <td id="T_53c79_row2_col1" class="data row2 col1" >-0.0</td>
-      <td id="T_53c79_row2_col2" class="data row2 col2" >0.0</td>
-      <td id="T_53c79_row2_col3" class="data row2 col3" >0.0</td>
-      <td id="T_53c79_row2_col4" class="data row2 col4" >-0.0</td>
-      <td id="T_53c79_row2_col5" class="data row2 col5" >-0.1</td>
-      <td id="T_53c79_row2_col6" class="data row2 col6" >-0.1</td>
-      <td id="T_53c79_row2_col7" class="data row2 col7" >0.0</td>
-      <td id="T_53c79_row2_col8" class="data row2 col8" >-0.1</td>
-      <td id="T_53c79_row2_col9" class="data row2 col9" >0.0</td>
-      <td id="T_53c79_row2_col10" class="data row2 col10" >0.0</td>
-      <td id="T_53c79_row2_col11" class="data row2 col11" >-0.0</td>
-      <td id="T_53c79_row2_col12" class="data row2 col12" >-0.1</td>
-      <td id="T_53c79_row2_col13" class="data row2 col13" >-0.0</td>
-      <td id="T_53c79_row2_col14" class="data row2 col14" >-0.0</td>
-      <td id="T_53c79_row2_col15" class="data row2 col15" >0.1</td>
-      <td id="T_53c79_row2_col16" class="data row2 col16" >0.0</td>
-      <td id="T_53c79_row2_col17" class="data row2 col17" >-0.0</td>
-      <td id="T_53c79_row2_col18" class="data row2 col18" >-0.0</td>
-      <td id="T_53c79_row2_col19" class="data row2 col19" >-0.0</td>
+      <th id="T_57c7e_level0_row2" class="row_heading level0 row2" >Trade-Volume BTC Ratio</th>
+      <td id="T_57c7e_row2_col0" class="data row2 col0" >0.0</td>
+      <td id="T_57c7e_row2_col1" class="data row2 col1" >-0.0</td>
+      <td id="T_57c7e_row2_col2" class="data row2 col2" >0.0</td>
+      <td id="T_57c7e_row2_col3" class="data row2 col3" >0.0</td>
+      <td id="T_57c7e_row2_col4" class="data row2 col4" >-0.0</td>
+      <td id="T_57c7e_row2_col5" class="data row2 col5" >-0.1</td>
+      <td id="T_57c7e_row2_col6" class="data row2 col6" >-0.1</td>
+      <td id="T_57c7e_row2_col7" class="data row2 col7" >0.0</td>
+      <td id="T_57c7e_row2_col8" class="data row2 col8" >-0.1</td>
+      <td id="T_57c7e_row2_col9" class="data row2 col9" >0.0</td>
+      <td id="T_57c7e_row2_col10" class="data row2 col10" >0.0</td>
+      <td id="T_57c7e_row2_col11" class="data row2 col11" >-0.0</td>
+      <td id="T_57c7e_row2_col12" class="data row2 col12" >-0.1</td>
+      <td id="T_57c7e_row2_col13" class="data row2 col13" >-0.0</td>
+      <td id="T_57c7e_row2_col14" class="data row2 col14" >-0.0</td>
+      <td id="T_57c7e_row2_col15" class="data row2 col15" >0.1</td>
+      <td id="T_57c7e_row2_col16" class="data row2 col16" >0.0</td>
+      <td id="T_57c7e_row2_col17" class="data row2 col17" >-0.0</td>
+      <td id="T_57c7e_row2_col18" class="data row2 col18" >-0.0</td>
+      <td id="T_57c7e_row2_col19" class="data row2 col19" >-0.0</td>
     </tr>
     <tr>
-      <th id="T_53c79_level0_row3" class="row_heading level0 row3" >Price-Taker Buy Volume BTC Ratio</th>
-      <td id="T_53c79_row3_col0" class="data row3 col0" >nan</td>
-      <td id="T_53c79_row3_col1" class="data row3 col1" >nan</td>
-      <td id="T_53c79_row3_col2" class="data row3 col2" >nan</td>
-      <td id="T_53c79_row3_col3" class="data row3 col3" >nan</td>
-      <td id="T_53c79_row3_col4" class="data row3 col4" >nan</td>
-      <td id="T_53c79_row3_col5" class="data row3 col5" >nan</td>
-      <td id="T_53c79_row3_col6" class="data row3 col6" >nan</td>
-      <td id="T_53c79_row3_col7" class="data row3 col7" >nan</td>
-      <td id="T_53c79_row3_col8" class="data row3 col8" >nan</td>
-      <td id="T_53c79_row3_col9" class="data row3 col9" >nan</td>
-      <td id="T_53c79_row3_col10" class="data row3 col10" >nan</td>
-      <td id="T_53c79_row3_col11" class="data row3 col11" >nan</td>
-      <td id="T_53c79_row3_col12" class="data row3 col12" >nan</td>
-      <td id="T_53c79_row3_col13" class="data row3 col13" >nan</td>
-      <td id="T_53c79_row3_col14" class="data row3 col14" >nan</td>
-      <td id="T_53c79_row3_col15" class="data row3 col15" >nan</td>
-      <td id="T_53c79_row3_col16" class="data row3 col16" >nan</td>
-      <td id="T_53c79_row3_col17" class="data row3 col17" >nan</td>
-      <td id="T_53c79_row3_col18" class="data row3 col18" >nan</td>
-      <td id="T_53c79_row3_col19" class="data row3 col19" >nan</td>
+      <th id="T_57c7e_level0_row3" class="row_heading level0 row3" >Price-Taker Buy Volume BTC Ratio</th>
+      <td id="T_57c7e_row3_col0" class="data row3 col0" >nan</td>
+      <td id="T_57c7e_row3_col1" class="data row3 col1" >nan</td>
+      <td id="T_57c7e_row3_col2" class="data row3 col2" >nan</td>
+      <td id="T_57c7e_row3_col3" class="data row3 col3" >nan</td>
+      <td id="T_57c7e_row3_col4" class="data row3 col4" >nan</td>
+      <td id="T_57c7e_row3_col5" class="data row3 col5" >nan</td>
+      <td id="T_57c7e_row3_col6" class="data row3 col6" >nan</td>
+      <td id="T_57c7e_row3_col7" class="data row3 col7" >nan</td>
+      <td id="T_57c7e_row3_col8" class="data row3 col8" >nan</td>
+      <td id="T_57c7e_row3_col9" class="data row3 col9" >nan</td>
+      <td id="T_57c7e_row3_col10" class="data row3 col10" >nan</td>
+      <td id="T_57c7e_row3_col11" class="data row3 col11" >nan</td>
+      <td id="T_57c7e_row3_col12" class="data row3 col12" >nan</td>
+      <td id="T_57c7e_row3_col13" class="data row3 col13" >nan</td>
+      <td id="T_57c7e_row3_col14" class="data row3 col14" >nan</td>
+      <td id="T_57c7e_row3_col15" class="data row3 col15" >nan</td>
+      <td id="T_57c7e_row3_col16" class="data row3 col16" >nan</td>
+      <td id="T_57c7e_row3_col17" class="data row3 col17" >nan</td>
+      <td id="T_57c7e_row3_col18" class="data row3 col18" >nan</td>
+      <td id="T_57c7e_row3_col19" class="data row3 col19" >nan</td>
     </tr>
     <tr>
-      <th id="T_53c79_level0_row4" class="row_heading level0 row4" >Trade-Taker Buy Volume BTC Ratio</th>
-      <td id="T_53c79_row4_col0" class="data row4 col0" >nan</td>
-      <td id="T_53c79_row4_col1" class="data row4 col1" >nan</td>
-      <td id="T_53c79_row4_col2" class="data row4 col2" >nan</td>
-      <td id="T_53c79_row4_col3" class="data row4 col3" >nan</td>
-      <td id="T_53c79_row4_col4" class="data row4 col4" >nan</td>
-      <td id="T_53c79_row4_col5" class="data row4 col5" >nan</td>
-      <td id="T_53c79_row4_col6" class="data row4 col6" >nan</td>
-      <td id="T_53c79_row4_col7" class="data row4 col7" >nan</td>
-      <td id="T_53c79_row4_col8" class="data row4 col8" >nan</td>
-      <td id="T_53c79_row4_col9" class="data row4 col9" >nan</td>
-      <td id="T_53c79_row4_col10" class="data row4 col10" >nan</td>
-      <td id="T_53c79_row4_col11" class="data row4 col11" >nan</td>
-      <td id="T_53c79_row4_col12" class="data row4 col12" >nan</td>
-      <td id="T_53c79_row4_col13" class="data row4 col13" >nan</td>
-      <td id="T_53c79_row4_col14" class="data row4 col14" >nan</td>
-      <td id="T_53c79_row4_col15" class="data row4 col15" >nan</td>
-      <td id="T_53c79_row4_col16" class="data row4 col16" >nan</td>
-      <td id="T_53c79_row4_col17" class="data row4 col17" >nan</td>
-      <td id="T_53c79_row4_col18" class="data row4 col18" >nan</td>
-      <td id="T_53c79_row4_col19" class="data row4 col19" >nan</td>
+      <th id="T_57c7e_level0_row4" class="row_heading level0 row4" >Trade-Taker Buy Volume BTC Ratio</th>
+      <td id="T_57c7e_row4_col0" class="data row4 col0" >nan</td>
+      <td id="T_57c7e_row4_col1" class="data row4 col1" >nan</td>
+      <td id="T_57c7e_row4_col2" class="data row4 col2" >nan</td>
+      <td id="T_57c7e_row4_col3" class="data row4 col3" >nan</td>
+      <td id="T_57c7e_row4_col4" class="data row4 col4" >nan</td>
+      <td id="T_57c7e_row4_col5" class="data row4 col5" >nan</td>
+      <td id="T_57c7e_row4_col6" class="data row4 col6" >nan</td>
+      <td id="T_57c7e_row4_col7" class="data row4 col7" >nan</td>
+      <td id="T_57c7e_row4_col8" class="data row4 col8" >nan</td>
+      <td id="T_57c7e_row4_col9" class="data row4 col9" >nan</td>
+      <td id="T_57c7e_row4_col10" class="data row4 col10" >nan</td>
+      <td id="T_57c7e_row4_col11" class="data row4 col11" >nan</td>
+      <td id="T_57c7e_row4_col12" class="data row4 col12" >nan</td>
+      <td id="T_57c7e_row4_col13" class="data row4 col13" >nan</td>
+      <td id="T_57c7e_row4_col14" class="data row4 col14" >nan</td>
+      <td id="T_57c7e_row4_col15" class="data row4 col15" >nan</td>
+      <td id="T_57c7e_row4_col16" class="data row4 col16" >nan</td>
+      <td id="T_57c7e_row4_col17" class="data row4 col17" >nan</td>
+      <td id="T_57c7e_row4_col18" class="data row4 col18" >nan</td>
+      <td id="T_57c7e_row4_col19" class="data row4 col19" >nan</td>
     </tr>
     <tr>
-      <th id="T_53c79_level0_row5" class="row_heading level0 row5" >DIFF 1 Maker-Taker Volume BTC Ratio</th>
-      <td id="T_53c79_row5_col0" class="data row5 col0" >-0.2</td>
-      <td id="T_53c79_row5_col1" class="data row5 col1" >-0.2</td>
-      <td id="T_53c79_row5_col2" class="data row5 col2" >-0.2</td>
-      <td id="T_53c79_row5_col3" class="data row5 col3" >0.3</td>
-      <td id="T_53c79_row5_col4" class="data row5 col4" >-0.2</td>
-      <td id="T_53c79_row5_col5" class="data row5 col5" >0.0</td>
-      <td id="T_53c79_row5_col6" class="data row5 col6" >0.1</td>
-      <td id="T_53c79_row5_col7" class="data row5 col7" >-0.1</td>
-      <td id="T_53c79_row5_col8" class="data row5 col8" >0.3</td>
-      <td id="T_53c79_row5_col9" class="data row5 col9" >-0.0</td>
-      <td id="T_53c79_row5_col10" class="data row5 col10" >-0.2</td>
-      <td id="T_53c79_row5_col11" class="data row5 col11" >0.0</td>
-      <td id="T_53c79_row5_col12" class="data row5 col12" >0.0</td>
-      <td id="T_53c79_row5_col13" class="data row5 col13" >0.1</td>
-      <td id="T_53c79_row5_col14" class="data row5 col14" >0.0</td>
-      <td id="T_53c79_row5_col15" class="data row5 col15" >-0.2</td>
-      <td id="T_53c79_row5_col16" class="data row5 col16" >0.1</td>
-      <td id="T_53c79_row5_col17" class="data row5 col17" >-0.0</td>
-      <td id="T_53c79_row5_col18" class="data row5 col18" >0.1</td>
-      <td id="T_53c79_row5_col19" class="data row5 col19" >-0.1</td>
+      <th id="T_57c7e_level0_row5" class="row_heading level0 row5" >DIFF 1 Maker-Taker Volume BTC Ratio</th>
+      <td id="T_57c7e_row5_col0" class="data row5 col0" >-0.2</td>
+      <td id="T_57c7e_row5_col1" class="data row5 col1" >-0.2</td>
+      <td id="T_57c7e_row5_col2" class="data row5 col2" >-0.2</td>
+      <td id="T_57c7e_row5_col3" class="data row5 col3" >0.3</td>
+      <td id="T_57c7e_row5_col4" class="data row5 col4" >-0.2</td>
+      <td id="T_57c7e_row5_col5" class="data row5 col5" >0.0</td>
+      <td id="T_57c7e_row5_col6" class="data row5 col6" >0.1</td>
+      <td id="T_57c7e_row5_col7" class="data row5 col7" >-0.1</td>
+      <td id="T_57c7e_row5_col8" class="data row5 col8" >0.3</td>
+      <td id="T_57c7e_row5_col9" class="data row5 col9" >-0.0</td>
+      <td id="T_57c7e_row5_col10" class="data row5 col10" >-0.2</td>
+      <td id="T_57c7e_row5_col11" class="data row5 col11" >0.0</td>
+      <td id="T_57c7e_row5_col12" class="data row5 col12" >0.0</td>
+      <td id="T_57c7e_row5_col13" class="data row5 col13" >0.1</td>
+      <td id="T_57c7e_row5_col14" class="data row5 col14" >0.0</td>
+      <td id="T_57c7e_row5_col15" class="data row5 col15" >-0.2</td>
+      <td id="T_57c7e_row5_col16" class="data row5 col16" >0.1</td>
+      <td id="T_57c7e_row5_col17" class="data row5 col17" >-0.0</td>
+      <td id="T_57c7e_row5_col18" class="data row5 col18" >0.1</td>
+      <td id="T_57c7e_row5_col19" class="data row5 col19" >-0.1</td>
     </tr>
     <tr>
-      <th id="T_53c79_level0_row6" class="row_heading level0 row6" >DIFF 1 Price-Volume BTC Ratio</th>
-      <td id="T_53c79_row6_col0" class="data row6 col0" >-0.0</td>
-      <td id="T_53c79_row6_col1" class="data row6 col1" >-0.0</td>
-      <td id="T_53c79_row6_col2" class="data row6 col2" >0.0</td>
-      <td id="T_53c79_row6_col3" class="data row6 col3" >0.1</td>
-      <td id="T_53c79_row6_col4" class="data row6 col4" >-0.0</td>
-      <td id="T_53c79_row6_col5" class="data row6 col5" >-0.1</td>
-      <td id="T_53c79_row6_col6" class="data row6 col6" >0.1</td>
-      <td id="T_53c79_row6_col7" class="data row6 col7" >-0.1</td>
-      <td id="T_53c79_row6_col8" class="data row6 col8" >-0.0</td>
-      <td id="T_53c79_row6_col9" class="data row6 col9" >0.0</td>
-      <td id="T_53c79_row6_col10" class="data row6 col10" >0.1</td>
-      <td id="T_53c79_row6_col11" class="data row6 col11" >-0.0</td>
-      <td id="T_53c79_row6_col12" class="data row6 col12" >0.0</td>
-      <td id="T_53c79_row6_col13" class="data row6 col13" >-0.1</td>
-      <td id="T_53c79_row6_col14" class="data row6 col14" >0.0</td>
-      <td id="T_53c79_row6_col15" class="data row6 col15" >0.0</td>
-      <td id="T_53c79_row6_col16" class="data row6 col16" >-0.0</td>
-      <td id="T_53c79_row6_col17" class="data row6 col17" >0.0</td>
-      <td id="T_53c79_row6_col18" class="data row6 col18" >0.0</td>
-      <td id="T_53c79_row6_col19" class="data row6 col19" >-0.0</td>
+      <th id="T_57c7e_level0_row6" class="row_heading level0 row6" >DIFF 1 Price-Volume BTC Ratio</th>
+      <td id="T_57c7e_row6_col0" class="data row6 col0" >-0.0</td>
+      <td id="T_57c7e_row6_col1" class="data row6 col1" >-0.0</td>
+      <td id="T_57c7e_row6_col2" class="data row6 col2" >0.0</td>
+      <td id="T_57c7e_row6_col3" class="data row6 col3" >0.1</td>
+      <td id="T_57c7e_row6_col4" class="data row6 col4" >-0.0</td>
+      <td id="T_57c7e_row6_col5" class="data row6 col5" >-0.1</td>
+      <td id="T_57c7e_row6_col6" class="data row6 col6" >0.1</td>
+      <td id="T_57c7e_row6_col7" class="data row6 col7" >-0.1</td>
+      <td id="T_57c7e_row6_col8" class="data row6 col8" >-0.0</td>
+      <td id="T_57c7e_row6_col9" class="data row6 col9" >0.0</td>
+      <td id="T_57c7e_row6_col10" class="data row6 col10" >0.1</td>
+      <td id="T_57c7e_row6_col11" class="data row6 col11" >-0.0</td>
+      <td id="T_57c7e_row6_col12" class="data row6 col12" >0.0</td>
+      <td id="T_57c7e_row6_col13" class="data row6 col13" >-0.1</td>
+      <td id="T_57c7e_row6_col14" class="data row6 col14" >0.0</td>
+      <td id="T_57c7e_row6_col15" class="data row6 col15" >0.0</td>
+      <td id="T_57c7e_row6_col16" class="data row6 col16" >-0.0</td>
+      <td id="T_57c7e_row6_col17" class="data row6 col17" >0.0</td>
+      <td id="T_57c7e_row6_col18" class="data row6 col18" >0.0</td>
+      <td id="T_57c7e_row6_col19" class="data row6 col19" >-0.0</td>
     </tr>
     <tr>
-      <th id="T_53c79_level0_row7" class="row_heading level0 row7" >DIFF 1 Trade-Volume BTC Ratio</th>
-      <td id="T_53c79_row7_col0" class="data row7 col0" >-0.0</td>
-      <td id="T_53c79_row7_col1" class="data row7 col1" >-0.0</td>
-      <td id="T_53c79_row7_col2" class="data row7 col2" >0.0</td>
-      <td id="T_53c79_row7_col3" class="data row7 col3" >0.1</td>
-      <td id="T_53c79_row7_col4" class="data row7 col4" >-0.0</td>
-      <td id="T_53c79_row7_col5" class="data row7 col5" >-0.1</td>
-      <td id="T_53c79_row7_col6" class="data row7 col6" >0.1</td>
-      <td id="T_53c79_row7_col7" class="data row7 col7" >-0.1</td>
-      <td id="T_53c79_row7_col8" class="data row7 col8" >-0.0</td>
-      <td id="T_53c79_row7_col9" class="data row7 col9" >0.0</td>
-      <td id="T_53c79_row7_col10" class="data row7 col10" >0.1</td>
-      <td id="T_53c79_row7_col11" class="data row7 col11" >-0.0</td>
-      <td id="T_53c79_row7_col12" class="data row7 col12" >0.0</td>
-      <td id="T_53c79_row7_col13" class="data row7 col13" >-0.1</td>
-      <td id="T_53c79_row7_col14" class="data row7 col14" >0.0</td>
-      <td id="T_53c79_row7_col15" class="data row7 col15" >0.0</td>
-      <td id="T_53c79_row7_col16" class="data row7 col16" >0.0</td>
-      <td id="T_53c79_row7_col17" class="data row7 col17" >0.0</td>
-      <td id="T_53c79_row7_col18" class="data row7 col18" >0.0</td>
-      <td id="T_53c79_row7_col19" class="data row7 col19" >-0.0</td>
+      <th id="T_57c7e_level0_row7" class="row_heading level0 row7" >DIFF 1 Trade-Volume BTC Ratio</th>
+      <td id="T_57c7e_row7_col0" class="data row7 col0" >-0.0</td>
+      <td id="T_57c7e_row7_col1" class="data row7 col1" >-0.0</td>
+      <td id="T_57c7e_row7_col2" class="data row7 col2" >0.0</td>
+      <td id="T_57c7e_row7_col3" class="data row7 col3" >0.1</td>
+      <td id="T_57c7e_row7_col4" class="data row7 col4" >-0.0</td>
+      <td id="T_57c7e_row7_col5" class="data row7 col5" >-0.1</td>
+      <td id="T_57c7e_row7_col6" class="data row7 col6" >0.1</td>
+      <td id="T_57c7e_row7_col7" class="data row7 col7" >-0.1</td>
+      <td id="T_57c7e_row7_col8" class="data row7 col8" >-0.0</td>
+      <td id="T_57c7e_row7_col9" class="data row7 col9" >0.0</td>
+      <td id="T_57c7e_row7_col10" class="data row7 col10" >0.1</td>
+      <td id="T_57c7e_row7_col11" class="data row7 col11" >-0.0</td>
+      <td id="T_57c7e_row7_col12" class="data row7 col12" >0.0</td>
+      <td id="T_57c7e_row7_col13" class="data row7 col13" >-0.1</td>
+      <td id="T_57c7e_row7_col14" class="data row7 col14" >0.0</td>
+      <td id="T_57c7e_row7_col15" class="data row7 col15" >0.0</td>
+      <td id="T_57c7e_row7_col16" class="data row7 col16" >0.0</td>
+      <td id="T_57c7e_row7_col17" class="data row7 col17" >0.0</td>
+      <td id="T_57c7e_row7_col18" class="data row7 col18" >0.0</td>
+      <td id="T_57c7e_row7_col19" class="data row7 col19" >-0.0</td>
     </tr>
     <tr>
-      <th id="T_53c79_level0_row8" class="row_heading level0 row8" >DIFF 1 Price-Taker Buy Volume BTC Ratio</th>
-      <td id="T_53c79_row8_col0" class="data row8 col0" >nan</td>
-      <td id="T_53c79_row8_col1" class="data row8 col1" >nan</td>
-      <td id="T_53c79_row8_col2" class="data row8 col2" >nan</td>
-      <td id="T_53c79_row8_col3" class="data row8 col3" >nan</td>
-      <td id="T_53c79_row8_col4" class="data row8 col4" >nan</td>
-      <td id="T_53c79_row8_col5" class="data row8 col5" >nan</td>
-      <td id="T_53c79_row8_col6" class="data row8 col6" >nan</td>
-      <td id="T_53c79_row8_col7" class="data row8 col7" >nan</td>
-      <td id="T_53c79_row8_col8" class="data row8 col8" >nan</td>
-      <td id="T_53c79_row8_col9" class="data row8 col9" >nan</td>
-      <td id="T_53c79_row8_col10" class="data row8 col10" >nan</td>
-      <td id="T_53c79_row8_col11" class="data row8 col11" >nan</td>
-      <td id="T_53c79_row8_col12" class="data row8 col12" >nan</td>
-      <td id="T_53c79_row8_col13" class="data row8 col13" >nan</td>
-      <td id="T_53c79_row8_col14" class="data row8 col14" >nan</td>
-      <td id="T_53c79_row8_col15" class="data row8 col15" >nan</td>
-      <td id="T_53c79_row8_col16" class="data row8 col16" >nan</td>
-      <td id="T_53c79_row8_col17" class="data row8 col17" >nan</td>
-      <td id="T_53c79_row8_col18" class="data row8 col18" >nan</td>
-      <td id="T_53c79_row8_col19" class="data row8 col19" >nan</td>
+      <th id="T_57c7e_level0_row8" class="row_heading level0 row8" >DIFF 1 Price-Taker Buy Volume BTC Ratio</th>
+      <td id="T_57c7e_row8_col0" class="data row8 col0" >nan</td>
+      <td id="T_57c7e_row8_col1" class="data row8 col1" >nan</td>
+      <td id="T_57c7e_row8_col2" class="data row8 col2" >nan</td>
+      <td id="T_57c7e_row8_col3" class="data row8 col3" >nan</td>
+      <td id="T_57c7e_row8_col4" class="data row8 col4" >nan</td>
+      <td id="T_57c7e_row8_col5" class="data row8 col5" >nan</td>
+      <td id="T_57c7e_row8_col6" class="data row8 col6" >nan</td>
+      <td id="T_57c7e_row8_col7" class="data row8 col7" >nan</td>
+      <td id="T_57c7e_row8_col8" class="data row8 col8" >nan</td>
+      <td id="T_57c7e_row8_col9" class="data row8 col9" >nan</td>
+      <td id="T_57c7e_row8_col10" class="data row8 col10" >nan</td>
+      <td id="T_57c7e_row8_col11" class="data row8 col11" >nan</td>
+      <td id="T_57c7e_row8_col12" class="data row8 col12" >nan</td>
+      <td id="T_57c7e_row8_col13" class="data row8 col13" >nan</td>
+      <td id="T_57c7e_row8_col14" class="data row8 col14" >nan</td>
+      <td id="T_57c7e_row8_col15" class="data row8 col15" >nan</td>
+      <td id="T_57c7e_row8_col16" class="data row8 col16" >nan</td>
+      <td id="T_57c7e_row8_col17" class="data row8 col17" >nan</td>
+      <td id="T_57c7e_row8_col18" class="data row8 col18" >nan</td>
+      <td id="T_57c7e_row8_col19" class="data row8 col19" >nan</td>
     </tr>
     <tr>
-      <th id="T_53c79_level0_row9" class="row_heading level0 row9" >DIFF 1 Trade-Taker Buy Volume BTC Ratio</th>
-      <td id="T_53c79_row9_col0" class="data row9 col0" >nan</td>
-      <td id="T_53c79_row9_col1" class="data row9 col1" >nan</td>
-      <td id="T_53c79_row9_col2" class="data row9 col2" >nan</td>
-      <td id="T_53c79_row9_col3" class="data row9 col3" >nan</td>
-      <td id="T_53c79_row9_col4" class="data row9 col4" >nan</td>
-      <td id="T_53c79_row9_col5" class="data row9 col5" >nan</td>
-      <td id="T_53c79_row9_col6" class="data row9 col6" >nan</td>
-      <td id="T_53c79_row9_col7" class="data row9 col7" >nan</td>
-      <td id="T_53c79_row9_col8" class="data row9 col8" >nan</td>
-      <td id="T_53c79_row9_col9" class="data row9 col9" >nan</td>
-      <td id="T_53c79_row9_col10" class="data row9 col10" >nan</td>
-      <td id="T_53c79_row9_col11" class="data row9 col11" >nan</td>
-      <td id="T_53c79_row9_col12" class="data row9 col12" >nan</td>
-      <td id="T_53c79_row9_col13" class="data row9 col13" >nan</td>
-      <td id="T_53c79_row9_col14" class="data row9 col14" >nan</td>
-      <td id="T_53c79_row9_col15" class="data row9 col15" >nan</td>
-      <td id="T_53c79_row9_col16" class="data row9 col16" >nan</td>
-      <td id="T_53c79_row9_col17" class="data row9 col17" >nan</td>
-      <td id="T_53c79_row9_col18" class="data row9 col18" >nan</td>
-      <td id="T_53c79_row9_col19" class="data row9 col19" >nan</td>
+      <th id="T_57c7e_level0_row9" class="row_heading level0 row9" >DIFF 1 Trade-Taker Buy Volume BTC Ratio</th>
+      <td id="T_57c7e_row9_col0" class="data row9 col0" >nan</td>
+      <td id="T_57c7e_row9_col1" class="data row9 col1" >nan</td>
+      <td id="T_57c7e_row9_col2" class="data row9 col2" >nan</td>
+      <td id="T_57c7e_row9_col3" class="data row9 col3" >nan</td>
+      <td id="T_57c7e_row9_col4" class="data row9 col4" >nan</td>
+      <td id="T_57c7e_row9_col5" class="data row9 col5" >nan</td>
+      <td id="T_57c7e_row9_col6" class="data row9 col6" >nan</td>
+      <td id="T_57c7e_row9_col7" class="data row9 col7" >nan</td>
+      <td id="T_57c7e_row9_col8" class="data row9 col8" >nan</td>
+      <td id="T_57c7e_row9_col9" class="data row9 col9" >nan</td>
+      <td id="T_57c7e_row9_col10" class="data row9 col10" >nan</td>
+      <td id="T_57c7e_row9_col11" class="data row9 col11" >nan</td>
+      <td id="T_57c7e_row9_col12" class="data row9 col12" >nan</td>
+      <td id="T_57c7e_row9_col13" class="data row9 col13" >nan</td>
+      <td id="T_57c7e_row9_col14" class="data row9 col14" >nan</td>
+      <td id="T_57c7e_row9_col15" class="data row9 col15" >nan</td>
+      <td id="T_57c7e_row9_col16" class="data row9 col16" >nan</td>
+      <td id="T_57c7e_row9_col17" class="data row9 col17" >nan</td>
+      <td id="T_57c7e_row9_col18" class="data row9 col18" >nan</td>
+      <td id="T_57c7e_row9_col19" class="data row9 col19" >nan</td>
     </tr>
     <tr>
-      <th id="T_53c79_level0_row10" class="row_heading level0 row10" >DIFF 2 Maker-Taker Volume BTC Ratio</th>
-      <td id="T_53c79_row10_col0" class="data row10 col0" >-0.3</td>
-      <td id="T_53c79_row10_col1" class="data row10 col1" >-0.3</td>
-      <td id="T_53c79_row10_col2" class="data row10 col2" >0.1</td>
-      <td id="T_53c79_row10_col3" class="data row10 col3" >0.0</td>
-      <td id="T_53c79_row10_col4" class="data row10 col4" >-0.2</td>
-      <td id="T_53c79_row10_col5" class="data row10 col5" >0.1</td>
-      <td id="T_53c79_row10_col6" class="data row10 col6" >-0.0</td>
-      <td id="T_53c79_row10_col7" class="data row10 col7" >0.2</td>
-      <td id="T_53c79_row10_col8" class="data row10 col8" >0.2</td>
-      <td id="T_53c79_row10_col9" class="data row10 col9" >-0.2</td>
-      <td id="T_53c79_row10_col10" class="data row10 col10" >-0.2</td>
-      <td id="T_53c79_row10_col11" class="data row10 col11" >0.0</td>
-      <td id="T_53c79_row10_col12" class="data row10 col12" >0.1</td>
-      <td id="T_53c79_row10_col13" class="data row10 col13" >0.1</td>
-      <td id="T_53c79_row10_col14" class="data row10 col14" >-0.1</td>
-      <td id="T_53c79_row10_col15" class="data row10 col15" >-0.1</td>
-      <td id="T_53c79_row10_col16" class="data row10 col16" >0.1</td>
-      <td id="T_53c79_row10_col17" class="data row10 col17" >0.1</td>
-      <td id="T_53c79_row10_col18" class="data row10 col18" >-0.0</td>
-      <td id="T_53c79_row10_col19" class="data row10 col19" >-0.2</td>
+      <th id="T_57c7e_level0_row10" class="row_heading level0 row10" >DIFF 2 Maker-Taker Volume BTC Ratio</th>
+      <td id="T_57c7e_row10_col0" class="data row10 col0" >-0.3</td>
+      <td id="T_57c7e_row10_col1" class="data row10 col1" >-0.3</td>
+      <td id="T_57c7e_row10_col2" class="data row10 col2" >0.1</td>
+      <td id="T_57c7e_row10_col3" class="data row10 col3" >0.0</td>
+      <td id="T_57c7e_row10_col4" class="data row10 col4" >-0.2</td>
+      <td id="T_57c7e_row10_col5" class="data row10 col5" >0.1</td>
+      <td id="T_57c7e_row10_col6" class="data row10 col6" >-0.0</td>
+      <td id="T_57c7e_row10_col7" class="data row10 col7" >0.2</td>
+      <td id="T_57c7e_row10_col8" class="data row10 col8" >0.2</td>
+      <td id="T_57c7e_row10_col9" class="data row10 col9" >-0.2</td>
+      <td id="T_57c7e_row10_col10" class="data row10 col10" >-0.2</td>
+      <td id="T_57c7e_row10_col11" class="data row10 col11" >0.0</td>
+      <td id="T_57c7e_row10_col12" class="data row10 col12" >0.1</td>
+      <td id="T_57c7e_row10_col13" class="data row10 col13" >0.1</td>
+      <td id="T_57c7e_row10_col14" class="data row10 col14" >-0.1</td>
+      <td id="T_57c7e_row10_col15" class="data row10 col15" >-0.1</td>
+      <td id="T_57c7e_row10_col16" class="data row10 col16" >0.1</td>
+      <td id="T_57c7e_row10_col17" class="data row10 col17" >0.1</td>
+      <td id="T_57c7e_row10_col18" class="data row10 col18" >-0.0</td>
+      <td id="T_57c7e_row10_col19" class="data row10 col19" >-0.2</td>
     </tr>
     <tr>
-      <th id="T_53c79_level0_row11" class="row_heading level0 row11" >DIFF 2 Price-Volume BTC Ratio</th>
-      <td id="T_53c79_row11_col0" class="data row11 col0" >-0.0</td>
-      <td id="T_53c79_row11_col1" class="data row11 col1" >0.0</td>
-      <td id="T_53c79_row11_col2" class="data row11 col2" >0.1</td>
-      <td id="T_53c79_row11_col3" class="data row11 col3" >0.1</td>
-      <td id="T_53c79_row11_col4" class="data row11 col4" >-0.1</td>
-      <td id="T_53c79_row11_col5" class="data row11 col5" >-0.0</td>
-      <td id="T_53c79_row11_col6" class="data row11 col6" >-0.0</td>
-      <td id="T_53c79_row11_col7" class="data row11 col7" >-0.1</td>
-      <td id="T_53c79_row11_col8" class="data row11 col8" >0.0</td>
-      <td id="T_53c79_row11_col9" class="data row11 col9" >0.1</td>
-      <td id="T_53c79_row11_col10" class="data row11 col10" >0.0</td>
-      <td id="T_53c79_row11_col11" class="data row11 col11" >-0.0</td>
-      <td id="T_53c79_row11_col12" class="data row11 col12" >-0.1</td>
-      <td id="T_53c79_row11_col13" class="data row11 col13" >-0.1</td>
-      <td id="T_53c79_row11_col14" class="data row11 col14" >0.1</td>
-      <td id="T_53c79_row11_col15" class="data row11 col15" >0.0</td>
-      <td id="T_53c79_row11_col16" class="data row11 col16" >0.0</td>
-      <td id="T_53c79_row11_col17" class="data row11 col17" >0.0</td>
-      <td id="T_53c79_row11_col18" class="data row11 col18" >-0.0</td>
-      <td id="T_53c79_row11_col19" class="data row11 col19" >-0.0</td>
+      <th id="T_57c7e_level0_row11" class="row_heading level0 row11" >DIFF 2 Price-Volume BTC Ratio</th>
+      <td id="T_57c7e_row11_col0" class="data row11 col0" >-0.0</td>
+      <td id="T_57c7e_row11_col1" class="data row11 col1" >0.0</td>
+      <td id="T_57c7e_row11_col2" class="data row11 col2" >0.1</td>
+      <td id="T_57c7e_row11_col3" class="data row11 col3" >0.1</td>
+      <td id="T_57c7e_row11_col4" class="data row11 col4" >-0.1</td>
+      <td id="T_57c7e_row11_col5" class="data row11 col5" >-0.0</td>
+      <td id="T_57c7e_row11_col6" class="data row11 col6" >-0.0</td>
+      <td id="T_57c7e_row11_col7" class="data row11 col7" >-0.1</td>
+      <td id="T_57c7e_row11_col8" class="data row11 col8" >0.0</td>
+      <td id="T_57c7e_row11_col9" class="data row11 col9" >0.1</td>
+      <td id="T_57c7e_row11_col10" class="data row11 col10" >0.0</td>
+      <td id="T_57c7e_row11_col11" class="data row11 col11" >-0.0</td>
+      <td id="T_57c7e_row11_col12" class="data row11 col12" >-0.1</td>
+      <td id="T_57c7e_row11_col13" class="data row11 col13" >-0.1</td>
+      <td id="T_57c7e_row11_col14" class="data row11 col14" >0.1</td>
+      <td id="T_57c7e_row11_col15" class="data row11 col15" >0.0</td>
+      <td id="T_57c7e_row11_col16" class="data row11 col16" >0.0</td>
+      <td id="T_57c7e_row11_col17" class="data row11 col17" >0.0</td>
+      <td id="T_57c7e_row11_col18" class="data row11 col18" >-0.0</td>
+      <td id="T_57c7e_row11_col19" class="data row11 col19" >-0.0</td>
     </tr>
     <tr>
-      <th id="T_53c79_level0_row12" class="row_heading level0 row12" >DIFF 2 Trade-Volume BTC Ratio</th>
-      <td id="T_53c79_row12_col0" class="data row12 col0" >-0.0</td>
-      <td id="T_53c79_row12_col1" class="data row12 col1" >0.0</td>
-      <td id="T_53c79_row12_col2" class="data row12 col2" >0.1</td>
-      <td id="T_53c79_row12_col3" class="data row12 col3" >0.1</td>
-      <td id="T_53c79_row12_col4" class="data row12 col4" >-0.1</td>
-      <td id="T_53c79_row12_col5" class="data row12 col5" >-0.0</td>
-      <td id="T_53c79_row12_col6" class="data row12 col6" >-0.0</td>
-      <td id="T_53c79_row12_col7" class="data row12 col7" >-0.1</td>
-      <td id="T_53c79_row12_col8" class="data row12 col8" >0.0</td>
-      <td id="T_53c79_row12_col9" class="data row12 col9" >0.1</td>
-      <td id="T_53c79_row12_col10" class="data row12 col10" >0.0</td>
-      <td id="T_53c79_row12_col11" class="data row12 col11" >-0.0</td>
-      <td id="T_53c79_row12_col12" class="data row12 col12" >-0.1</td>
-      <td id="T_53c79_row12_col13" class="data row12 col13" >-0.1</td>
-      <td id="T_53c79_row12_col14" class="data row12 col14" >0.1</td>
-      <td id="T_53c79_row12_col15" class="data row12 col15" >0.0</td>
-      <td id="T_53c79_row12_col16" class="data row12 col16" >0.0</td>
-      <td id="T_53c79_row12_col17" class="data row12 col17" >0.0</td>
-      <td id="T_53c79_row12_col18" class="data row12 col18" >-0.0</td>
-      <td id="T_53c79_row12_col19" class="data row12 col19" >-0.1</td>
+      <th id="T_57c7e_level0_row12" class="row_heading level0 row12" >DIFF 2 Trade-Volume BTC Ratio</th>
+      <td id="T_57c7e_row12_col0" class="data row12 col0" >-0.0</td>
+      <td id="T_57c7e_row12_col1" class="data row12 col1" >0.0</td>
+      <td id="T_57c7e_row12_col2" class="data row12 col2" >0.1</td>
+      <td id="T_57c7e_row12_col3" class="data row12 col3" >0.1</td>
+      <td id="T_57c7e_row12_col4" class="data row12 col4" >-0.1</td>
+      <td id="T_57c7e_row12_col5" class="data row12 col5" >-0.0</td>
+      <td id="T_57c7e_row12_col6" class="data row12 col6" >-0.0</td>
+      <td id="T_57c7e_row12_col7" class="data row12 col7" >-0.1</td>
+      <td id="T_57c7e_row12_col8" class="data row12 col8" >0.0</td>
+      <td id="T_57c7e_row12_col9" class="data row12 col9" >0.1</td>
+      <td id="T_57c7e_row12_col10" class="data row12 col10" >0.0</td>
+      <td id="T_57c7e_row12_col11" class="data row12 col11" >-0.0</td>
+      <td id="T_57c7e_row12_col12" class="data row12 col12" >-0.1</td>
+      <td id="T_57c7e_row12_col13" class="data row12 col13" >-0.1</td>
+      <td id="T_57c7e_row12_col14" class="data row12 col14" >0.1</td>
+      <td id="T_57c7e_row12_col15" class="data row12 col15" >0.0</td>
+      <td id="T_57c7e_row12_col16" class="data row12 col16" >0.0</td>
+      <td id="T_57c7e_row12_col17" class="data row12 col17" >0.0</td>
+      <td id="T_57c7e_row12_col18" class="data row12 col18" >-0.0</td>
+      <td id="T_57c7e_row12_col19" class="data row12 col19" >-0.1</td>
     </tr>
     <tr>
-      <th id="T_53c79_level0_row13" class="row_heading level0 row13" >DIFF 2 Price-Taker Buy Volume BTC Ratio</th>
-      <td id="T_53c79_row13_col0" class="data row13 col0" >nan</td>
-      <td id="T_53c79_row13_col1" class="data row13 col1" >nan</td>
-      <td id="T_53c79_row13_col2" class="data row13 col2" >nan</td>
-      <td id="T_53c79_row13_col3" class="data row13 col3" >nan</td>
-      <td id="T_53c79_row13_col4" class="data row13 col4" >nan</td>
-      <td id="T_53c79_row13_col5" class="data row13 col5" >nan</td>
-      <td id="T_53c79_row13_col6" class="data row13 col6" >nan</td>
-      <td id="T_53c79_row13_col7" class="data row13 col7" >nan</td>
-      <td id="T_53c79_row13_col8" class="data row13 col8" >nan</td>
-      <td id="T_53c79_row13_col9" class="data row13 col9" >nan</td>
-      <td id="T_53c79_row13_col10" class="data row13 col10" >nan</td>
-      <td id="T_53c79_row13_col11" class="data row13 col11" >nan</td>
-      <td id="T_53c79_row13_col12" class="data row13 col12" >nan</td>
-      <td id="T_53c79_row13_col13" class="data row13 col13" >nan</td>
-      <td id="T_53c79_row13_col14" class="data row13 col14" >nan</td>
-      <td id="T_53c79_row13_col15" class="data row13 col15" >nan</td>
-      <td id="T_53c79_row13_col16" class="data row13 col16" >nan</td>
-      <td id="T_53c79_row13_col17" class="data row13 col17" >nan</td>
-      <td id="T_53c79_row13_col18" class="data row13 col18" >nan</td>
-      <td id="T_53c79_row13_col19" class="data row13 col19" >nan</td>
+      <th id="T_57c7e_level0_row13" class="row_heading level0 row13" >DIFF 2 Price-Taker Buy Volume BTC Ratio</th>
+      <td id="T_57c7e_row13_col0" class="data row13 col0" >nan</td>
+      <td id="T_57c7e_row13_col1" class="data row13 col1" >nan</td>
+      <td id="T_57c7e_row13_col2" class="data row13 col2" >nan</td>
+      <td id="T_57c7e_row13_col3" class="data row13 col3" >nan</td>
+      <td id="T_57c7e_row13_col4" class="data row13 col4" >nan</td>
+      <td id="T_57c7e_row13_col5" class="data row13 col5" >nan</td>
+      <td id="T_57c7e_row13_col6" class="data row13 col6" >nan</td>
+      <td id="T_57c7e_row13_col7" class="data row13 col7" >nan</td>
+      <td id="T_57c7e_row13_col8" class="data row13 col8" >nan</td>
+      <td id="T_57c7e_row13_col9" class="data row13 col9" >nan</td>
+      <td id="T_57c7e_row13_col10" class="data row13 col10" >nan</td>
+      <td id="T_57c7e_row13_col11" class="data row13 col11" >nan</td>
+      <td id="T_57c7e_row13_col12" class="data row13 col12" >nan</td>
+      <td id="T_57c7e_row13_col13" class="data row13 col13" >nan</td>
+      <td id="T_57c7e_row13_col14" class="data row13 col14" >nan</td>
+      <td id="T_57c7e_row13_col15" class="data row13 col15" >nan</td>
+      <td id="T_57c7e_row13_col16" class="data row13 col16" >nan</td>
+      <td id="T_57c7e_row13_col17" class="data row13 col17" >nan</td>
+      <td id="T_57c7e_row13_col18" class="data row13 col18" >nan</td>
+      <td id="T_57c7e_row13_col19" class="data row13 col19" >nan</td>
     </tr>
     <tr>
-      <th id="T_53c79_level0_row14" class="row_heading level0 row14" >DIFF 2 Trade-Taker Buy Volume BTC Ratio</th>
-      <td id="T_53c79_row14_col0" class="data row14 col0" >nan</td>
-      <td id="T_53c79_row14_col1" class="data row14 col1" >nan</td>
-      <td id="T_53c79_row14_col2" class="data row14 col2" >nan</td>
-      <td id="T_53c79_row14_col3" class="data row14 col3" >nan</td>
-      <td id="T_53c79_row14_col4" class="data row14 col4" >nan</td>
-      <td id="T_53c79_row14_col5" class="data row14 col5" >nan</td>
-      <td id="T_53c79_row14_col6" class="data row14 col6" >nan</td>
-      <td id="T_53c79_row14_col7" class="data row14 col7" >nan</td>
-      <td id="T_53c79_row14_col8" class="data row14 col8" >nan</td>
-      <td id="T_53c79_row14_col9" class="data row14 col9" >nan</td>
-      <td id="T_53c79_row14_col10" class="data row14 col10" >nan</td>
-      <td id="T_53c79_row14_col11" class="data row14 col11" >nan</td>
-      <td id="T_53c79_row14_col12" class="data row14 col12" >nan</td>
-      <td id="T_53c79_row14_col13" class="data row14 col13" >nan</td>
-      <td id="T_53c79_row14_col14" class="data row14 col14" >nan</td>
-      <td id="T_53c79_row14_col15" class="data row14 col15" >nan</td>
-      <td id="T_53c79_row14_col16" class="data row14 col16" >nan</td>
-      <td id="T_53c79_row14_col17" class="data row14 col17" >nan</td>
-      <td id="T_53c79_row14_col18" class="data row14 col18" >nan</td>
-      <td id="T_53c79_row14_col19" class="data row14 col19" >nan</td>
+      <th id="T_57c7e_level0_row14" class="row_heading level0 row14" >DIFF 2 Trade-Taker Buy Volume BTC Ratio</th>
+      <td id="T_57c7e_row14_col0" class="data row14 col0" >nan</td>
+      <td id="T_57c7e_row14_col1" class="data row14 col1" >nan</td>
+      <td id="T_57c7e_row14_col2" class="data row14 col2" >nan</td>
+      <td id="T_57c7e_row14_col3" class="data row14 col3" >nan</td>
+      <td id="T_57c7e_row14_col4" class="data row14 col4" >nan</td>
+      <td id="T_57c7e_row14_col5" class="data row14 col5" >nan</td>
+      <td id="T_57c7e_row14_col6" class="data row14 col6" >nan</td>
+      <td id="T_57c7e_row14_col7" class="data row14 col7" >nan</td>
+      <td id="T_57c7e_row14_col8" class="data row14 col8" >nan</td>
+      <td id="T_57c7e_row14_col9" class="data row14 col9" >nan</td>
+      <td id="T_57c7e_row14_col10" class="data row14 col10" >nan</td>
+      <td id="T_57c7e_row14_col11" class="data row14 col11" >nan</td>
+      <td id="T_57c7e_row14_col12" class="data row14 col12" >nan</td>
+      <td id="T_57c7e_row14_col13" class="data row14 col13" >nan</td>
+      <td id="T_57c7e_row14_col14" class="data row14 col14" >nan</td>
+      <td id="T_57c7e_row14_col15" class="data row14 col15" >nan</td>
+      <td id="T_57c7e_row14_col16" class="data row14 col16" >nan</td>
+      <td id="T_57c7e_row14_col17" class="data row14 col17" >nan</td>
+      <td id="T_57c7e_row14_col18" class="data row14 col18" >nan</td>
+      <td id="T_57c7e_row14_col19" class="data row14 col19" >nan</td>
     </tr>
     <tr>
-      <th id="T_53c79_level0_row15" class="row_heading level0 row15" >DIFF 3 Maker-Taker Volume BTC Ratio</th>
-      <td id="T_53c79_row15_col0" class="data row15 col0" >-0.5</td>
-      <td id="T_53c79_row15_col1" class="data row15 col1" >-0.1</td>
-      <td id="T_53c79_row15_col2" class="data row15 col2" >-0.1</td>
-      <td id="T_53c79_row15_col3" class="data row15 col3" >0.1</td>
-      <td id="T_53c79_row15_col4" class="data row15 col4" >-0.1</td>
-      <td id="T_53c79_row15_col5" class="data row15 col5" >0.0</td>
-      <td id="T_53c79_row15_col6" class="data row15 col6" >0.3</td>
-      <td id="T_53c79_row15_col7" class="data row15 col7" >0.1</td>
-      <td id="T_53c79_row15_col8" class="data row15 col8" >0.1</td>
-      <td id="T_53c79_row15_col9" class="data row15 col9" >-0.2</td>
-      <td id="T_53c79_row15_col10" class="data row15 col10" >-0.2</td>
-      <td id="T_53c79_row15_col11" class="data row15 col11" >0.1</td>
-      <td id="T_53c79_row15_col12" class="data row15 col12" >0.1</td>
-      <td id="T_53c79_row15_col13" class="data row15 col13" >-0.1</td>
-      <td id="T_53c79_row15_col14" class="data row15 col14" >-0.1</td>
-      <td id="T_53c79_row15_col15" class="data row15 col15" >-0.1</td>
-      <td id="T_53c79_row15_col16" class="data row15 col16" >0.2</td>
-      <td id="T_53c79_row15_col17" class="data row15 col17" >-0.0</td>
-      <td id="T_53c79_row15_col18" class="data row15 col18" >-0.1</td>
-      <td id="T_53c79_row15_col19" class="data row15 col19" >-0.2</td>
+      <th id="T_57c7e_level0_row15" class="row_heading level0 row15" >DIFF 3 Maker-Taker Volume BTC Ratio</th>
+      <td id="T_57c7e_row15_col0" class="data row15 col0" >-0.5</td>
+      <td id="T_57c7e_row15_col1" class="data row15 col1" >-0.1</td>
+      <td id="T_57c7e_row15_col2" class="data row15 col2" >-0.1</td>
+      <td id="T_57c7e_row15_col3" class="data row15 col3" >0.1</td>
+      <td id="T_57c7e_row15_col4" class="data row15 col4" >-0.1</td>
+      <td id="T_57c7e_row15_col5" class="data row15 col5" >0.0</td>
+      <td id="T_57c7e_row15_col6" class="data row15 col6" >0.3</td>
+      <td id="T_57c7e_row15_col7" class="data row15 col7" >0.1</td>
+      <td id="T_57c7e_row15_col8" class="data row15 col8" >0.1</td>
+      <td id="T_57c7e_row15_col9" class="data row15 col9" >-0.2</td>
+      <td id="T_57c7e_row15_col10" class="data row15 col10" >-0.2</td>
+      <td id="T_57c7e_row15_col11" class="data row15 col11" >0.1</td>
+      <td id="T_57c7e_row15_col12" class="data row15 col12" >0.1</td>
+      <td id="T_57c7e_row15_col13" class="data row15 col13" >-0.1</td>
+      <td id="T_57c7e_row15_col14" class="data row15 col14" >-0.1</td>
+      <td id="T_57c7e_row15_col15" class="data row15 col15" >-0.1</td>
+      <td id="T_57c7e_row15_col16" class="data row15 col16" >0.2</td>
+      <td id="T_57c7e_row15_col17" class="data row15 col17" >-0.0</td>
+      <td id="T_57c7e_row15_col18" class="data row15 col18" >-0.1</td>
+      <td id="T_57c7e_row15_col19" class="data row15 col19" >-0.2</td>
     </tr>
     <tr>
-      <th id="T_53c79_level0_row16" class="row_heading level0 row16" >DIFF 3 Price-Volume BTC Ratio</th>
-      <td id="T_53c79_row16_col0" class="data row16 col0" >-0.0</td>
-      <td id="T_53c79_row16_col1" class="data row16 col1" >0.1</td>
-      <td id="T_53c79_row16_col2" class="data row16 col2" >0.1</td>
-      <td id="T_53c79_row16_col3" class="data row16 col3" >-0.0</td>
-      <td id="T_53c79_row16_col4" class="data row16 col4" >-0.0</td>
-      <td id="T_53c79_row16_col5" class="data row16 col5" >-0.1</td>
-      <td id="T_53c79_row16_col6" class="data row16 col6" >-0.0</td>
-      <td id="T_53c79_row16_col7" class="data row16 col7" >-0.1</td>
-      <td id="T_53c79_row16_col8" class="data row16 col8" >0.1</td>
-      <td id="T_53c79_row16_col9" class="data row16 col9" >0.0</td>
-      <td id="T_53c79_row16_col10" class="data row16 col10" >0.0</td>
-      <td id="T_53c79_row16_col11" class="data row16 col11" >-0.1</td>
-      <td id="T_53c79_row16_col12" class="data row16 col12" >-0.1</td>
-      <td id="T_53c79_row16_col13" class="data row16 col13" >-0.0</td>
-      <td id="T_53c79_row16_col14" class="data row16 col14" >0.0</td>
-      <td id="T_53c79_row16_col15" class="data row16 col15" >0.0</td>
-      <td id="T_53c79_row16_col16" class="data row16 col16" >0.0</td>
-      <td id="T_53c79_row16_col17" class="data row16 col17" >0.0</td>
-      <td id="T_53c79_row16_col18" class="data row16 col18" >-0.0</td>
-      <td id="T_53c79_row16_col19" class="data row16 col19" >-0.0</td>
+      <th id="T_57c7e_level0_row16" class="row_heading level0 row16" >DIFF 3 Price-Volume BTC Ratio</th>
+      <td id="T_57c7e_row16_col0" class="data row16 col0" >-0.0</td>
+      <td id="T_57c7e_row16_col1" class="data row16 col1" >0.1</td>
+      <td id="T_57c7e_row16_col2" class="data row16 col2" >0.1</td>
+      <td id="T_57c7e_row16_col3" class="data row16 col3" >-0.0</td>
+      <td id="T_57c7e_row16_col4" class="data row16 col4" >-0.0</td>
+      <td id="T_57c7e_row16_col5" class="data row16 col5" >-0.1</td>
+      <td id="T_57c7e_row16_col6" class="data row16 col6" >-0.0</td>
+      <td id="T_57c7e_row16_col7" class="data row16 col7" >-0.1</td>
+      <td id="T_57c7e_row16_col8" class="data row16 col8" >0.1</td>
+      <td id="T_57c7e_row16_col9" class="data row16 col9" >0.0</td>
+      <td id="T_57c7e_row16_col10" class="data row16 col10" >0.0</td>
+      <td id="T_57c7e_row16_col11" class="data row16 col11" >-0.1</td>
+      <td id="T_57c7e_row16_col12" class="data row16 col12" >-0.1</td>
+      <td id="T_57c7e_row16_col13" class="data row16 col13" >-0.0</td>
+      <td id="T_57c7e_row16_col14" class="data row16 col14" >0.0</td>
+      <td id="T_57c7e_row16_col15" class="data row16 col15" >0.0</td>
+      <td id="T_57c7e_row16_col16" class="data row16 col16" >0.0</td>
+      <td id="T_57c7e_row16_col17" class="data row16 col17" >0.0</td>
+      <td id="T_57c7e_row16_col18" class="data row16 col18" >-0.0</td>
+      <td id="T_57c7e_row16_col19" class="data row16 col19" >-0.0</td>
     </tr>
     <tr>
-      <th id="T_53c79_level0_row17" class="row_heading level0 row17" >DIFF 3 Trade-Volume BTC Ratio</th>
-      <td id="T_53c79_row17_col0" class="data row17 col0" >0.0</td>
-      <td id="T_53c79_row17_col1" class="data row17 col1" >0.1</td>
-      <td id="T_53c79_row17_col2" class="data row17 col2" >0.1</td>
-      <td id="T_53c79_row17_col3" class="data row17 col3" >-0.0</td>
-      <td id="T_53c79_row17_col4" class="data row17 col4" >-0.0</td>
-      <td id="T_53c79_row17_col5" class="data row17 col5" >-0.1</td>
-      <td id="T_53c79_row17_col6" class="data row17 col6" >-0.0</td>
-      <td id="T_53c79_row17_col7" class="data row17 col7" >-0.0</td>
-      <td id="T_53c79_row17_col8" class="data row17 col8" >0.1</td>
-      <td id="T_53c79_row17_col9" class="data row17 col9" >0.1</td>
-      <td id="T_53c79_row17_col10" class="data row17 col10" >0.0</td>
-      <td id="T_53c79_row17_col11" class="data row17 col11" >-0.1</td>
-      <td id="T_53c79_row17_col12" class="data row17 col12" >-0.1</td>
-      <td id="T_53c79_row17_col13" class="data row17 col13" >-0.0</td>
-      <td id="T_53c79_row17_col14" class="data row17 col14" >0.1</td>
-      <td id="T_53c79_row17_col15" class="data row17 col15" >0.1</td>
-      <td id="T_53c79_row17_col16" class="data row17 col16" >0.0</td>
-      <td id="T_53c79_row17_col17" class="data row17 col17" >-0.0</td>
-      <td id="T_53c79_row17_col18" class="data row17 col18" >-0.0</td>
-      <td id="T_53c79_row17_col19" class="data row17 col19" >-0.0</td>
+      <th id="T_57c7e_level0_row17" class="row_heading level0 row17" >DIFF 3 Trade-Volume BTC Ratio</th>
+      <td id="T_57c7e_row17_col0" class="data row17 col0" >0.0</td>
+      <td id="T_57c7e_row17_col1" class="data row17 col1" >0.1</td>
+      <td id="T_57c7e_row17_col2" class="data row17 col2" >0.1</td>
+      <td id="T_57c7e_row17_col3" class="data row17 col3" >-0.0</td>
+      <td id="T_57c7e_row17_col4" class="data row17 col4" >-0.0</td>
+      <td id="T_57c7e_row17_col5" class="data row17 col5" >-0.1</td>
+      <td id="T_57c7e_row17_col6" class="data row17 col6" >-0.0</td>
+      <td id="T_57c7e_row17_col7" class="data row17 col7" >-0.0</td>
+      <td id="T_57c7e_row17_col8" class="data row17 col8" >0.1</td>
+      <td id="T_57c7e_row17_col9" class="data row17 col9" >0.1</td>
+      <td id="T_57c7e_row17_col10" class="data row17 col10" >0.0</td>
+      <td id="T_57c7e_row17_col11" class="data row17 col11" >-0.1</td>
+      <td id="T_57c7e_row17_col12" class="data row17 col12" >-0.1</td>
+      <td id="T_57c7e_row17_col13" class="data row17 col13" >-0.0</td>
+      <td id="T_57c7e_row17_col14" class="data row17 col14" >0.1</td>
+      <td id="T_57c7e_row17_col15" class="data row17 col15" >0.1</td>
+      <td id="T_57c7e_row17_col16" class="data row17 col16" >0.0</td>
+      <td id="T_57c7e_row17_col17" class="data row17 col17" >-0.0</td>
+      <td id="T_57c7e_row17_col18" class="data row17 col18" >-0.0</td>
+      <td id="T_57c7e_row17_col19" class="data row17 col19" >-0.0</td>
     </tr>
     <tr>
-      <th id="T_53c79_level0_row18" class="row_heading level0 row18" >DIFF 3 Price-Taker Buy Volume BTC Ratio</th>
-      <td id="T_53c79_row18_col0" class="data row18 col0" >nan</td>
-      <td id="T_53c79_row18_col1" class="data row18 col1" >nan</td>
-      <td id="T_53c79_row18_col2" class="data row18 col2" >nan</td>
-      <td id="T_53c79_row18_col3" class="data row18 col3" >nan</td>
-      <td id="T_53c79_row18_col4" class="data row18 col4" >nan</td>
-      <td id="T_53c79_row18_col5" class="data row18 col5" >nan</td>
-      <td id="T_53c79_row18_col6" class="data row18 col6" >nan</td>
-      <td id="T_53c79_row18_col7" class="data row18 col7" >nan</td>
-      <td id="T_53c79_row18_col8" class="data row18 col8" >nan</td>
-      <td id="T_53c79_row18_col9" class="data row18 col9" >nan</td>
-      <td id="T_53c79_row18_col10" class="data row18 col10" >nan</td>
-      <td id="T_53c79_row18_col11" class="data row18 col11" >nan</td>
-      <td id="T_53c79_row18_col12" class="data row18 col12" >nan</td>
-      <td id="T_53c79_row18_col13" class="data row18 col13" >nan</td>
-      <td id="T_53c79_row18_col14" class="data row18 col14" >nan</td>
-      <td id="T_53c79_row18_col15" class="data row18 col15" >nan</td>
-      <td id="T_53c79_row18_col16" class="data row18 col16" >nan</td>
-      <td id="T_53c79_row18_col17" class="data row18 col17" >nan</td>
-      <td id="T_53c79_row18_col18" class="data row18 col18" >nan</td>
-      <td id="T_53c79_row18_col19" class="data row18 col19" >nan</td>
+      <th id="T_57c7e_level0_row18" class="row_heading level0 row18" >DIFF 3 Price-Taker Buy Volume BTC Ratio</th>
+      <td id="T_57c7e_row18_col0" class="data row18 col0" >nan</td>
+      <td id="T_57c7e_row18_col1" class="data row18 col1" >nan</td>
+      <td id="T_57c7e_row18_col2" class="data row18 col2" >nan</td>
+      <td id="T_57c7e_row18_col3" class="data row18 col3" >nan</td>
+      <td id="T_57c7e_row18_col4" class="data row18 col4" >nan</td>
+      <td id="T_57c7e_row18_col5" class="data row18 col5" >nan</td>
+      <td id="T_57c7e_row18_col6" class="data row18 col6" >nan</td>
+      <td id="T_57c7e_row18_col7" class="data row18 col7" >nan</td>
+      <td id="T_57c7e_row18_col8" class="data row18 col8" >nan</td>
+      <td id="T_57c7e_row18_col9" class="data row18 col9" >nan</td>
+      <td id="T_57c7e_row18_col10" class="data row18 col10" >nan</td>
+      <td id="T_57c7e_row18_col11" class="data row18 col11" >nan</td>
+      <td id="T_57c7e_row18_col12" class="data row18 col12" >nan</td>
+      <td id="T_57c7e_row18_col13" class="data row18 col13" >nan</td>
+      <td id="T_57c7e_row18_col14" class="data row18 col14" >nan</td>
+      <td id="T_57c7e_row18_col15" class="data row18 col15" >nan</td>
+      <td id="T_57c7e_row18_col16" class="data row18 col16" >nan</td>
+      <td id="T_57c7e_row18_col17" class="data row18 col17" >nan</td>
+      <td id="T_57c7e_row18_col18" class="data row18 col18" >nan</td>
+      <td id="T_57c7e_row18_col19" class="data row18 col19" >nan</td>
     </tr>
     <tr>
-      <th id="T_53c79_level0_row19" class="row_heading level0 row19" >DIFF 3 Trade-Taker Buy Volume BTC Ratio</th>
-      <td id="T_53c79_row19_col0" class="data row19 col0" >nan</td>
-      <td id="T_53c79_row19_col1" class="data row19 col1" >nan</td>
-      <td id="T_53c79_row19_col2" class="data row19 col2" >nan</td>
-      <td id="T_53c79_row19_col3" class="data row19 col3" >nan</td>
-      <td id="T_53c79_row19_col4" class="data row19 col4" >nan</td>
-      <td id="T_53c79_row19_col5" class="data row19 col5" >nan</td>
-      <td id="T_53c79_row19_col6" class="data row19 col6" >nan</td>
-      <td id="T_53c79_row19_col7" class="data row19 col7" >nan</td>
-      <td id="T_53c79_row19_col8" class="data row19 col8" >nan</td>
-      <td id="T_53c79_row19_col9" class="data row19 col9" >nan</td>
-      <td id="T_53c79_row19_col10" class="data row19 col10" >nan</td>
-      <td id="T_53c79_row19_col11" class="data row19 col11" >nan</td>
-      <td id="T_53c79_row19_col12" class="data row19 col12" >nan</td>
-      <td id="T_53c79_row19_col13" class="data row19 col13" >nan</td>
-      <td id="T_53c79_row19_col14" class="data row19 col14" >nan</td>
-      <td id="T_53c79_row19_col15" class="data row19 col15" >nan</td>
-      <td id="T_53c79_row19_col16" class="data row19 col16" >nan</td>
-      <td id="T_53c79_row19_col17" class="data row19 col17" >nan</td>
-      <td id="T_53c79_row19_col18" class="data row19 col18" >nan</td>
-      <td id="T_53c79_row19_col19" class="data row19 col19" >nan</td>
+      <th id="T_57c7e_level0_row19" class="row_heading level0 row19" >DIFF 3 Trade-Taker Buy Volume BTC Ratio</th>
+      <td id="T_57c7e_row19_col0" class="data row19 col0" >nan</td>
+      <td id="T_57c7e_row19_col1" class="data row19 col1" >nan</td>
+      <td id="T_57c7e_row19_col2" class="data row19 col2" >nan</td>
+      <td id="T_57c7e_row19_col3" class="data row19 col3" >nan</td>
+      <td id="T_57c7e_row19_col4" class="data row19 col4" >nan</td>
+      <td id="T_57c7e_row19_col5" class="data row19 col5" >nan</td>
+      <td id="T_57c7e_row19_col6" class="data row19 col6" >nan</td>
+      <td id="T_57c7e_row19_col7" class="data row19 col7" >nan</td>
+      <td id="T_57c7e_row19_col8" class="data row19 col8" >nan</td>
+      <td id="T_57c7e_row19_col9" class="data row19 col9" >nan</td>
+      <td id="T_57c7e_row19_col10" class="data row19 col10" >nan</td>
+      <td id="T_57c7e_row19_col11" class="data row19 col11" >nan</td>
+      <td id="T_57c7e_row19_col12" class="data row19 col12" >nan</td>
+      <td id="T_57c7e_row19_col13" class="data row19 col13" >nan</td>
+      <td id="T_57c7e_row19_col14" class="data row19 col14" >nan</td>
+      <td id="T_57c7e_row19_col15" class="data row19 col15" >nan</td>
+      <td id="T_57c7e_row19_col16" class="data row19 col16" >nan</td>
+      <td id="T_57c7e_row19_col17" class="data row19 col17" >nan</td>
+      <td id="T_57c7e_row19_col18" class="data row19 col18" >nan</td>
+      <td id="T_57c7e_row19_col19" class="data row19 col19" >nan</td>
     </tr>
   </tbody>
 </table>
@@ -3499,7 +3693,7 @@ print('Maker-Taker Ratio Kurtosis = ' + str(complete_data['Maker-Taker Volume ' 
 
 ```
 
-    Maker-Taker Ratio Kurtosis = -0.32462105
+    Maker-Taker Ratio Kurtosis = -0.3246779
     
 
 
